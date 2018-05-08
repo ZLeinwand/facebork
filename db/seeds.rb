@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+
+names = ['emma', 'baxter', 'maisy']
+email = ['emma@bork.com', 'baxter@hoplife.com', 'maisy@ardsley.com']
+password = 'password'
+
+users = names.map.with_index { |name, idx| User.create!(name: name, email: email[idx], password: password) }
