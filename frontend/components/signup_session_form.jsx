@@ -54,7 +54,8 @@ export default class SignUpSessionForm extends Component {
               className='signupInput'>
             </input>
           </div>
-        <button>Sign Up</button>
+
+          <button className='splashButton'>Sign Up</button>
         </form>
       </div>
     )

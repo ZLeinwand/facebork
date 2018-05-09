@@ -12,7 +12,7 @@ export default (props) => {
         <main id='splashContainer'>
           <div className='main1'>
             <h1>Connect with frendos around the world with FaceBork</h1>
-            <img id='splashImage' src={window.splashimage} />
+            <img id='splashImage' src={window.splashimage} alt='the babe'/>
           </div>
           <div className='main2'>
             <h1>Sign Up</h1>
@@ -20,14 +20,17 @@ export default (props) => {
             <SignUpForm />
             <span className='features'>
               <div>
-                <strong>See photos and updates</strong> from friends in News Feed <br />
+                <img src={window.fb1} />
+                <p><b>See photos and updates</b> from friends in News Feed </p>
               </div>
               <div>
-                <strong>Share what's new</strong> in your life on your Timeline <br />
+                <img src={window.fb2} />
+                <p><b>Share what's new</b> in your life on your Timeline </p>
               </div>
               <div>
-                <strong>Find your frendos</strong> with FaceBork search
-                </div>
+                <img src={window.fb3} />
+                <p><b>Find your frendos</b> with FaceBork search</p>
+              </div>
               </span>
           </div>
         </main>

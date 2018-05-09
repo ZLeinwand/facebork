@@ -179,6 +179,8 @@ main > div > h3 {
   padding: 7px 6px 6px 6px ;
   padding-left: 10px;
   margin: 0 auto;
+  font-size: 18px;
+
 }
 
 .signupInput::placeholder {
@@ -186,7 +188,7 @@ main > div > h3 {
   color: #999999
 }
 
-.signupForm > button {
+.splashButton {
   margin: 8px 0 0 7px;
   background: linear-gradient(#61a14e, #5c9448);
   // background-color: #5d984a;
@@ -203,4 +205,22 @@ main > div > h3 {
   // outline-offset: -3px
   box-shadow: 0 0 0 0px #95d67b, inset 0px 1px 2px 0px #fff;
 
+}
+
+.features > div {
+  margin: 30px 5px 5px -25px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-family: sans-serif;
+  padding: 5px 5px 5px 5px;
+}
+
+.features > div > img {
+  width: 45px;
+  margin-right: 14px;
+}
+
+.features > div > p > b {
+  font-size: 16px;
 }
