@@ -22,6 +22,7 @@ export default class SessionForm extends Component {
     }
 
     this.props.action(info)
+    this.setState({ password: '' })
   }
 
 
@@ -33,6 +34,7 @@ export default class SessionForm extends Component {
 
   render() {
     let name;
+
     if (this.props.formType === 'Sign Up'){
       name = (
         <label>Name:
@@ -45,6 +47,8 @@ export default class SessionForm extends Component {
     }
     return (
       <form onSubmit={this.handleSubmit}>
+        {this.props.errors.join('\n')}
+        <br />
         {name}
         <label>Email:
           <input onChange={this.update('email')} type='text' value={this.state.email}></input>
