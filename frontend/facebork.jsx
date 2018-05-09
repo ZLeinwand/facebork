@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (window.currentUser) {
     store.dispatch(Actions.receiveCurrentUser(window.currentUser))
+    delete window.currentUser
   }
 
   ReactDom.render(<Root store={store} />, root)
