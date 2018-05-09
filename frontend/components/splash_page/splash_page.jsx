@@ -13,7 +13,7 @@ export default (props) => {
         <main id='splashContainer'>
           <div className='main1'>
             <h1>Connect with frendos around the world with FaceBork</h1>
-            <img id='splashImage' src={window.splashimage.emma} alt='the babe'/>
+            <img id='splashImage' src={window.splashimage} alt='the babe'/>
           </div>
           <div className='main2'>
             <h1>Sign Up</h1>
