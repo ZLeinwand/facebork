@@ -1,10 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import LoginForm from './login_form_container'
-import SignUpForm from './signup_form_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
-import loginHeader from './login_header'
-import SplashPage from './splash_page'
+import SplashPage from './splash_page/splash_page'
 
 export default (props) => {
   return (

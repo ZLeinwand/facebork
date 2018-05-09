@@ -1,10 +1,8 @@
-import { RECEIVE_SESSION_ERRORS } from '../actions/session_actions'
+import { combineReducers } from 'redux'
+import loginErrorsReducer from './login_errors_reducer'
+import signupErrorsReducer from './signup_errors_reducer'
 
-export default (oldState = [], action) => {
-  switch (action.type) {
-    case RECEIVE_SESSION_ERRORS:
-      return action.errors
-    default:
-      return []
-  }
-}
+export default combineReducers({
+  loginErrors: loginErrorsReducer,
+  signupErrors: signupErrorsReducer
+})

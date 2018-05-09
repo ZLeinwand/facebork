@@ -1,6 +1,6 @@
 import React from 'react'
-import { AuthRoute } from '../util/route_util'
-import LoginForm from '../components/login_form_container'
+import { AuthRoute } from '../../../util/route_util'
+import LoginForm from './login_form_container'
 export default (props) => {
   return (
     <section className='loginHeader'>

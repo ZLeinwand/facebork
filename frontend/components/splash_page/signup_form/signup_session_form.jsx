@@ -30,7 +30,7 @@ export default class SignUpSessionForm extends Component {
     return (
       <div className='signContainer'>
         <form className='signupForm' onSubmit={this.handleSubmit}>
-          {this.props.errors.join('\n')}
+          <span className='errors'>{this.props.errors.join('\n')}</span>
 
             <input onChange={this.update('name')}
               type='text'

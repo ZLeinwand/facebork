@@ -1,6 +1,7 @@
 import React from 'react'
-import Header from './login_header';
-import SignUpForm from './signup_form_container';
+import Header from './login_form/login_header';
+import SignUpForm from './signup_form/signup_form_container';
+import Footer from './footer'
 
 
 
@@ -35,6 +36,7 @@ export default (props) => {
           </div>
         </main>
       </span>
+      <Footer />
     </span>
   )
 }

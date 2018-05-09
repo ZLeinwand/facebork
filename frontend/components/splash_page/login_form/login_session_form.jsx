@@ -41,6 +41,9 @@ export default class LoginSessionForm extends Component {
         <div>
           <button>Log In</button>
         </div>
+        <div>
+          <button onClick={this.props.demoLogin}>Demo</button>
+        </div>
       </form>
     )
   }
