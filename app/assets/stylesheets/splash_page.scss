@@ -106,11 +106,7 @@ body {
 }
 
 
-#splashImage {
-  padding: 30px 50px 50px 20px;
-  width: 380px;
-  height: auto;
-}
+
 
 #splashContainer {
   width: 900px;
@@ -159,7 +155,11 @@ main > div > h3 {
 .signupForm {
   display: flex;
   flex-direction: column;
+}
 
+.signupForm > span {
+  padding-left: 8px;
+  height: 40px;
 }
 
 .signupForm > input {
@@ -221,4 +221,86 @@ main > div > h3 {
 
 .features > div > p > b {
   font-size: 16px;
+}
+
+.transistor {
+  position: relative;
+
+
+}
+
+#splashImage1 {
+  width: 380px;
+  height: 498px;
+  padding: 30px 50px 50px 20px;
+  position: absolute;
+}
+#splashImage2 {
+  width: 380px;
+  height: 498px;
+  padding: 30px 50px 50px 20px;
+  position: absolute;
+}
+#splashImage3 {
+  width: 380px;
+  height: 498px;
+  padding: 30px 50px 50px 20px;
+  position: absolute;
+}
+#splashImage4 {
+  width: 380px;
+  height: 498px;
+  padding: 30px 50px 50px 20px;
+  position: absolute;
+}
+#splashImage5 {
+  width: 380px;
+  height: 498px;
+  padding: 30px 50px 50px 20px;
+  position: absolute;
+}
+
+@keyframes transistorFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity:0;
+  }
+  60% {
+    opacity:0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.transistor img {
+  animation-name: transistorFadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+  animation-direction: alternate;
+}
+
+.transistor img:nth-of-type(1) {
+  animation-delay: 12s;
+}
+.transistor img:nth-of-type(2) {
+  animation-delay: 9s;
+}
+.transistor img:nth-of-type(3) {
+  animation-delay: 6s;
+}
+.transistor img:nth-of-type(4) {
+  animation-delay: 3s;
+}
+.transistor img:nth-of-type(5) {
+  animation-delay: 0s;
 }
