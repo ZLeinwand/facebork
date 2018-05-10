@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_one :profile
+
   attr_reader :password
 
   # has_one :bio --ADD BIO TABLE TO ENABLE
