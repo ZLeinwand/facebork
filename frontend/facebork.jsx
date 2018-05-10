@@ -3,13 +3,15 @@ import configureStore from './store/store'
 import Root from './components/root.jsx'
 import ReactDom from 'react-dom'
 import * as Actions from './actions/session_actions'
+import * as ProfileActions from './actions/profile_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
   const store = configureStore()
-  window.api = Actions
+  window.sessionApi = Actions
   window.store = store
   window.dispatch = store.dispatch
+  window.profileApi = ProfileActions
 
   if (window.currentUser) {
     store.dispatch(Actions.receiveCurrentUser(window.currentUser))

@@ -1,12 +1,14 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
-import SplashPage from './splash_page/splash_page'
+import SplashPage from './splash_page/splash_page';
+import Interior from './interior/interior'
 
 export default (props) => {
   return (
     <div>
       <AuthRoute exact path='/session' component={SplashPage}/>
+      <ProtectedRoute path='/' component={Interior} />
     </div>
   )
 }
