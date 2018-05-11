@@ -5,7 +5,6 @@ import { fetchProfile } from '../../../actions/profile_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const profileId = ownProps.match.params.userId
   return {
     profile: state.entities.profiles[profileId]

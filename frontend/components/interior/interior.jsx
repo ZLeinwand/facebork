@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 
 export default (props) => {
   return (
-    <main>
+    <main id='mainFull'>
       <NavBar />
       <Route path={`/users/:userId`} component={Profile} />
     </main>
