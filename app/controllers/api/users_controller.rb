@@ -16,6 +16,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @profile_id = @user.profile.id
   end
 
   def index

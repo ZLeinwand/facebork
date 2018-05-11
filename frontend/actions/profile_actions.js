@@ -3,8 +3,8 @@ import * as APIUtil from '../util/profile_api_util';
 export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
 export const RECEIVE_PROFILE_ERRORS = 'RECEIVE_PROFILE_ERRORS';
 
-export const fetchProfile = (profileId) => (dispatch) => {
-  return APIUtil.fetchProfile(profileId).then((profile) => dispatch(receiveProfile(profile)), (errors) => dispatch(receiveErrors(errors)))
+export const fetchProfile = (userId) => (dispatch) => {
+  return APIUtil.fetchProfile(userId).then((profile) => dispatch(receiveProfile(profile)), (errors) => dispatch(receiveErrors(errors)))
 }
 
 export const updateProfile = (profileData) => (dispatch) => {

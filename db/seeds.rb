@@ -6,9 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
+Profile.destroy_all
 
+password = 'password'
 names = ['emma', 'baxter', 'maisy']
 email = ['emma@bork.com', 'baxter@hoplife.com', 'maisy@ardsley.com']
-password = 'password'
 
-users = names.map.with_index { |name, idx| User.create!(name: name, email: email[idx], password: password) }
+bob = User.create!(name: 'Bob Borker', email: 'demouser@facebork.com', password: password)
+Profile.create(user_id: bob.id)
+
+profiles = []
+
+users = names.map.with_index do |name, idx|
+  u = User.create!(name: name, email: email[idx], password: password)
+  profiles << Profile.new(user_id: u.id)
+end
+
+bdays = ['November 5 2014', 'April 13 2012', 'August 15, 2000']
+job_title = ['Queen', 'hopper', 'HouseBabe']
+lives_in = ['Ossining', 'Spanish Harlem', 'The Great Farm In The Sky']
+relationship_status = ['owned', 'free man', 'loved']
+owners_names = ['Mike and Maria', 'Yolo Martinez', 'The Leinwands']
+breed = ['Havanese', 'Eastern Cottontail', 'Cavalier King Charles Spaniel']
+fav_toy = ['Bone', 'Paper Towel Roll', 'Bone']
+
+
+profiles.each_with_index do |profile, idx|
+  profile.update!(birthday: bdays[idx], job_title: job_title[idx], lives_in: lives_in[idx], relationship_status: relationship_status[idx],
+    owners_names: owners_names[idx], breed: breed[idx], fav_toy: fav_toy[idx])
+end

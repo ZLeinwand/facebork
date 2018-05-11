@@ -1,6 +1,7 @@
 class Api::ProfilesController < ApplicationController
   def show
-    @profile = Profile.find(params[:id])
+    @user = User.find(params[:id])
+    @profile = @user.profile
   end
 
   def update
@@ -16,7 +17,7 @@ class Api::ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:user_id, :birthday, :job_title, :lives_in, :relationship_status, :owners_names,
+    params.require(:profile).permit(:birthday, :job_title, :lives_in, :relationship_status, :owners_names,
       :breed, :fav_toy)
   end
 end

@@ -8,6 +8,7 @@ export default class LoginSessionForm extends Component {
       password: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.demoLogin = this.demoLogin.bind(this)
   }
 
   handleSubmit(e) {
@@ -23,6 +24,12 @@ export default class LoginSessionForm extends Component {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value })
     }
+  }
+
+  demoLogin(e) {
+    e.preventDefault()
+
+    this.props.demoLogin()
   }
 
   render() {
@@ -42,7 +49,7 @@ export default class LoginSessionForm extends Component {
           <button>Log In</button>
         </div>
         <div>
-          <button onClick={this.props.demoLogin}>Demo</button>
+          <button onClick={this.demoLogin}>Demo</button>
         </div>
       </form>
     )

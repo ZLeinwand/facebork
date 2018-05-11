@@ -2,14 +2,17 @@
 #
 # Table name: users
 #
-#  id              :bigint(8)        not null, primary key
-#  name            :string           not null
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  avi_url         :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id               :bigint(8)        not null, primary key
+#  name             :string           not null
+#  email            :string           not null
+#  password_digest  :string           not null
+#  session_token    :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  avi_file_name    :string
+#  avi_content_type :string
+#  avi_file_size    :integer
+#  avi_updated_at   :datetime
 #
 
 class User < ApplicationRecord
@@ -17,13 +20,15 @@ class User < ApplicationRecord
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
 
+  has_attached_file :avi, default_url: 'default_avi.png'
+  validates_attachment_content_type :avi, content_type: /\Aimage\/.*\Z/
+
   after_initialize :ensure_session_token
 
   has_one :profile
 
   attr_reader :password
 
-  # has_one :bio --ADD BIO TABLE TO ENABLE
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)

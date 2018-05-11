@@ -18,7 +18,7 @@ export default class NavBar extends Component {
           <div className='rightInteriorNav'>
             <Link to={`/users/${this.props.userId}`}>
               <span className='nameSpan'>
-                <div className='navAvi'></div>
+                <img src={this.props.userAvi} className='navAvi'></img>
                 <div>{this.props.userName}</div>
               </span>
             </Link>
