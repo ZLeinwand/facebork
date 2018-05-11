@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProfileHead from './profile_nav'
+import ProfileHead from './profile_head_container'
 
 
 export default class Profile extends Component {
@@ -29,7 +29,7 @@ export default class Profile extends Component {
 
     return (
       <section id='profileFull'>
-        <ProfileHead profilePic={avi} userName={name}/>
+        <ProfileHead profilePic={avi} userName={name} match={this.props.match}/>
       </section>
     )
   }

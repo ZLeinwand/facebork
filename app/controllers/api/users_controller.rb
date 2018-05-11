@@ -19,6 +19,13 @@ class Api::UsersController < ApplicationController
     @profile_id = @user.profile.id
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      @profile = @user.profile
+      render 'api/profiles/show.json.jbuilder'
+    end
+  end
   def index
     #current_user.friends should get all users from friends list
     #User.find_by user query string from search to find users with find friends
@@ -31,6 +38,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :avi)
   end
 end

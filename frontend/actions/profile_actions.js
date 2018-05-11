@@ -11,14 +11,14 @@ export const updateProfile = (profileData) => (dispatch) => {
   return APIUtil.updateProfile(profileData).then((profile) => dispatch(receiveProfile(profile)), (errors) => dispatch(receiveErrors(errors)))
 }
 
-const receiveProfile = (profile) => {
+export const receiveProfile = (profile) => {
   return {
     type: RECEIVE_PROFILE,
     profile
   }
 }
 
-const receiveErrors = (errors) => {
+export const receiveErrors = (errors) => {
   return {
     type: RECEIVE_PROFILE_ERRORS,
     errors

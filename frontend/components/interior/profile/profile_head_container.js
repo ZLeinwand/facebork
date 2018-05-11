@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
-import Profile from './profile';
-import { fetchProfile } from '../../../actions/profile_actions';
-
+import ProfileHead from './profile_head';
+import { updateProfilePic } from '../../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const profileId = ownProps.match.params.userId
@@ -13,8 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchProfile: (profileId) => dispatch(fetchProfile(profileId))
+    updateProfilePic: (profileData) => dispatch(updateProfilePic(profileData))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileHead)
