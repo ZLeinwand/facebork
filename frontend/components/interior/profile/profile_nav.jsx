@@ -3,7 +3,16 @@ import React, { Component } from 'react'
 
 export default class ProfileHead extends Component{
 
-
+  componentDidMount(){
+    $('.profilePic').find(":button").hide()
+    $(document).ready(function () {
+    $(document).on('mouseenter', '.profilePic', function () {
+        $(this).find(":button").show();
+    }).on('mouseleave', '.profilePic', function () {
+        $(this).find(":button").hide();
+    });
+});
+  }
 
   render() {
     const coverStyle = {
@@ -12,20 +21,30 @@ export default class ProfileHead extends Component{
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center'
     }
+
+    const profilePicStyle = {
+      backgroundImage: `url(${this.props.profilePic})`,
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center'
+    }
     return (
       <section id='profileHead'>
         <div id='coverPhoto' style={ coverStyle }>
-          <img className='profilePic' src={this.props.profilePic} >
-          </img>
-          <div id='profilePicUpdateButton'></div>
+          <div className='profilePic' style={ profilePicStyle }>
+            <button id='profilePicUpdateButton'>
+              <img className='photoIcon' src={window.photoIcon}/>
+              <strong>Update Profile Pic</strong>
+            </button>
+          </div>
           <h1>{this.props.userName}</h1>
         </div>
         <nav id='profileBar'>
-          <span>WhiteSpace</span>
+          <span></span>
           <div>About</div>
           <div>Friends</div>
           <div>Photos</div>
-          <div>WhiteSpace</div>
+          <div></div>
         </nav>
       </section>
     )
