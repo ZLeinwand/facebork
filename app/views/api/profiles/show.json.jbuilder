@@ -1,3 +1,4 @@
+# debugger
 json.partial! './api/profiles/profile.json.jbuilder', profile: @profile
 json.users do
   json.array! [@user.id]

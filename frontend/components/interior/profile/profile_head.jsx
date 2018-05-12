@@ -9,6 +9,7 @@ export default class ProfileHead extends Component{
     }
 
     this.updateProfilePic = this.updateProfilePic.bind(this)
+    this.updateCoverPhoto = this.updateCoverPhoto.bind(this)
   }
 
   componentDidMount(){
@@ -47,9 +48,17 @@ export default class ProfileHead extends Component{
     this.props.updateProfilePic(formData)
   }
 
+  updateCoverPhoto(e) {
+    const file = e.currentTarget.files[0];
+    const formData = new FormData();
+    formData.append("user[cover_photo]", file)
+    formData.append("user[id]", this.props.currentUser)
+    this.props.updateProfilePic(formData)
+  }
+
   render() {
     const coverStyle = {
-      backgroundImage: `url(${this.props.profilePic})`,
+      backgroundImage: `url(${this.props.coverPhoto})`,
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center'
@@ -64,6 +73,14 @@ export default class ProfileHead extends Component{
     return (
       <section id='profileHead'>
         <div id='coverPhoto' style={ coverStyle }>
+          <button id='coverPicUpdateButton'>
+
+            <label htmlFor="coverUpload" id='coverProfButton'>
+              <img className='photoIcon' src={window.photoIcon}/>
+              <strong>Update Cover Photo</strong>
+            </label>
+            <input type='file' name="coverUpload" id='coverUpload' className='inputfile' onChange={ this.updateCoverPhoto } ></input>
+          </button>
           <div className='profilePic' style={ profilePicStyle }>
             <button id='profilePicUpdateButton'>
 

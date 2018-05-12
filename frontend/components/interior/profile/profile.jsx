@@ -22,14 +22,16 @@ export default class Profile extends Component {
     // debugger
     let avi = ""
     let name = ""
+    let cover_url = ""
     if (this.props.profile) {
       avi = this.props.profile.user.avi_url
       name = this.props.profile.user.name
+      cover_url = this.props.profile.user.cover_url
     }
 
     return (
       <section id='profileFull'>
-        <ProfileHead profilePic={avi} userName={name} match={this.props.match}/>
+        <ProfileHead profilePic={avi} coverPhoto={cover_url} userName={name} match={this.props.match}/>
       </section>
     )
   }

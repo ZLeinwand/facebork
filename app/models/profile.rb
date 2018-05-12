@@ -18,5 +18,6 @@
 class Profile < ApplicationRecord
   validates :user_id, presence: true, uniqueness: true
 
-  belongs_to :user
+  belongs_to :user,
+  dependent: :destroy
 end

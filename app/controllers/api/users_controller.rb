@@ -24,6 +24,8 @@ class Api::UsersController < ApplicationController
     if @user.update(user_params)
       @profile = @user.profile
       render 'api/profiles/show.json.jbuilder'
+    else
+      render json: @user.errors.full_messages, status: 420
     end
   end
   def index
@@ -38,6 +40,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :avi)
+    params.require(:user).permit(:name, :email, :password, :avi, :cover_photo)
   end
 end

@@ -25,13 +25,13 @@
 
 .profilePic {
   position: relative;
-  margin-top: 172px;
+  margin-top: 105px;
   margin-left: 30px;
   border: 4px solid white;
   // outline: 1px solid lightgray;
   box-shadow: 0 0 0 1pt #949796;
   border-radius: 4px;
-  float: left;
+  // float: left;
   width: 160px;
   height: 160px;
   z-index: 10;
@@ -79,7 +79,7 @@
   text-rendering: optimizeLegibility;
   text-shadow: 0 0 3px rgba(0,0,0,.8);
   margin-left: 213px;
-  margin-top: 276px
+  margin-top: -68px;
 }
 
 #profilePicUpdateButton {
@@ -123,4 +123,9 @@ strong {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#coverPicUpdateButton {
+  margin-left: 100px;
+  margin-top: 40px;
 }

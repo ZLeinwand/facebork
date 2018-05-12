@@ -2,17 +2,21 @@
 #
 # Table name: users
 #
-#  id               :bigint(8)        not null, primary key
-#  name             :string           not null
-#  email            :string           not null
-#  password_digest  :string           not null
-#  session_token    :string           not null
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  avi_file_name    :string
-#  avi_content_type :string
-#  avi_file_size    :integer
-#  avi_updated_at   :datetime
+#  id                       :bigint(8)        not null, primary key
+#  name                     :string           not null
+#  email                    :string           not null
+#  password_digest          :string           not null
+#  session_token            :string           not null
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  avi_file_name            :string
+#  avi_content_type         :string
+#  avi_file_size            :integer
+#  avi_updated_at           :datetime
+#  cover_photo_file_name    :string
+#  cover_photo_content_type :string
+#  cover_photo_file_size    :integer
+#  cover_photo_updated_at   :datetime
 #
 
 class User < ApplicationRecord
@@ -22,6 +26,9 @@ class User < ApplicationRecord
 
   has_attached_file :avi, default_url: 'default_avi.png'
   validates_attachment_content_type :avi, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :cover_photo, default_url: 'default_cover_photo.png'
+  validates_attachment_content_type :cover_photo, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token
 
