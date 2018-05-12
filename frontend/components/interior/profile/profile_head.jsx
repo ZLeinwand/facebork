@@ -23,6 +23,13 @@ export default class ProfileHead extends Component{
       });
       });
     }
+    if (this.props.currentUser != this.props.match.params.userId) {
+      $('#hnnngggg').hide()
+      $('.profilePic').css('margin-top', '160px')
+    } else {
+      $('#hnnngggg').show()
+      $('.profilePic').css('margin-top', '101px')
+    }
   }
 
   componentWillReceiveProps(){
@@ -37,6 +44,13 @@ export default class ProfileHead extends Component{
       });
     } else {
       $(document).off('mouseenter', '.profilePic')
+    }
+    if (this.props.currentUser != this.props.match.params.userId) {
+      $('#hnnngggg').hide()
+      $('.profilePic').css('margin-top', '160px')
+    } else {
+      $('#hnnngggg').show()
+      $('.profilePic').css('margin-top', '101px')
     }
   }
 
@@ -73,13 +87,14 @@ export default class ProfileHead extends Component{
     return (
       <section id='profileHead'>
         <div id='coverPhoto' style={ coverStyle }>
-          <button id='coverPicUpdateButton'>
-
-            <label htmlFor="coverUpload" id='coverProfButton'>
-              <img className='photoIcon' src={window.photoIcon}/>
-              <strong>Update Cover Photo</strong>
-            </label>
-            <input type='file' name="coverUpload" id='coverUpload' className='inputfile' onChange={ this.updateCoverPhoto } ></input>
+            <button id='coverPicUpdateButton'>
+              <span id='hnnngggg'>
+                <label htmlFor="coverUpload" id='coverProfButton'>
+                  <img className='photoIcon' src={window.photoIcon}/>
+                  <div>Update Cover Photo</div>
+                <input type='file' name="coverUpload" id='coverUpload' className='inputfile' onChange={ this.updateCoverPhoto } ></input>
+              </label>
+            </span>
           </button>
           <div className='profilePic' style={ profilePicStyle }>
             <button id='profilePicUpdateButton'>
