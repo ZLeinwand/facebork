@@ -6,7 +6,7 @@ export default (state = {}, action) => {
     case RECEIVE_PROFILE:
       let newState = merge({}, state)
       // debugger
-      newState[action.profile.id] = action.profile
+      newState[action.profile.user_id] = action.profile
       return newState;
     default:
       return state
