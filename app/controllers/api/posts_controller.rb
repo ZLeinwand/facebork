@@ -6,9 +6,10 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.author_id = current_user
+    @post.author_id = current_user.id
 
     if @post.save
+      @posts = Post.where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
       render :index
     else
       render json: @post.errors.full_messages, status: 420
@@ -18,7 +19,8 @@ class Api::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(post_params)
+    if @post.update(params[:body])
+      @posts = Post.where(wall_id: @post.wall_id).order(created_at: :desc)
       render :index
     else
       render json: @post.errors.full_messages, status: 420
