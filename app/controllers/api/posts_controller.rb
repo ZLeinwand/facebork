@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.find_by(wall_id: params[:post][:wall_id]).order(created_at: :desc)
+    @posts = Post.where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
+    # @posts = Post.all.order(created_at: :desc)
   end
 
   def create
@@ -15,7 +16,7 @@ class Api::PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find([:id])
+    @post = Post.find(params[:id])
 
     if @post.update(post_params)
       render :index

@@ -20,6 +20,7 @@ profiles = []
 users = names.map.with_index do |name, idx|
   u = User.create!(name: name, email: email[idx], password: password)
   profiles << Profile.new(user_id: u.id)
+  u
 end
 
 bdays = ['November 5 2014', 'April 13 2012', 'August 15, 2000']
@@ -35,4 +36,13 @@ descriptions = ['A Good Girle, the best girl, and angel from heaven. Queen of th
 profiles.each_with_index do |profile, idx|
   profile.update!(birthday: bdays[idx], job_title: job_title[idx], lives_in: lives_in[idx], relationship_status: relationship_status[idx],
     owners_names: owners_names[idx], breed: breed[idx], fav_toy: fav_toy[idx], description: descriptions[idx])
+end
+
+debugger
+authors = [users[0], users[0], users[1]]
+walls = [users[0], users[1], users[0]]
+bodys = ['first post', 'bork bork', 'yolozaddy']
+
+posts = authors.map.with_index do |author, idx|
+  Post.create(author_id: author.id, wall_id: walls[idx].id, body: bodys[idx])
 end
