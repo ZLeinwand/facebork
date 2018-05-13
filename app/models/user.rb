@@ -35,6 +35,14 @@ class User < ApplicationRecord
   has_one :profile,
     dependent: :destroy
 
+  has_many :posts_made,
+    foreign_key: :author_id,
+    class_name: :Post
+
+  has_many :posts_on_wall,
+    foreign_key: :wall_id,
+    class_name: :Post
+
   attr_reader :password
 
 
