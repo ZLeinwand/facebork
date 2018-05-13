@@ -5,7 +5,9 @@ class Api::ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    # debugger
+    @user = User.find(params[:id])
+    @profile = @user.profile
 
     if @profile.update(profile_params)
       render :show
@@ -18,6 +20,6 @@ class Api::ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:birthday, :job_title, :lives_in, :relationship_status, :owners_names,
-      :breed, :fav_toy)
+      :breed, :fav_toy, :description)
   end
 end
