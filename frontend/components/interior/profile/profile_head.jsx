@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 
 export default class ProfileHead extends Component{
@@ -110,10 +111,10 @@ export default class ProfileHead extends Component{
         </div>
         <nav id='profileBar'>
           <span></span>
-          <div>About</div>
+          <div><Link to={`/users/${this.props.match.params.userId}`}>Timeline</Link></div>
+          <div><Link to={`/users/${this.props.match.params.userId}/about`}>About</Link></div>
           <div>Friends</div>
           <div>Photos</div>
-          <div></div>
         </nav>
       </section>
     )

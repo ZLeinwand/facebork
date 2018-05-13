@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import ProfileHead from './profile_head_container'
+import ProfileBottomMain from './profile_bottom_main_container'
+import ProfileBottomAbout from './profile_bottom_about_container'
+import { Route } from 'react-router-dom'
 
 
 export default class Profile extends Component {
@@ -23,15 +26,19 @@ export default class Profile extends Component {
     let avi = ""
     let name = ""
     let cover_url = ""
+    let profile = {}
     if (this.props.profile) {
       avi = this.props.profile.user.avi_url
       name = this.props.profile.user.name
       cover_url = this.props.profile.user.cover_url
+      // profile = this.props.profile
     }
 
     return (
       <section id='profileFull'>
         <ProfileHead profilePic={avi} coverPhoto={cover_url} userName={name} match={this.props.match}/>
+        <Route path='/users/:userId' exact component={ProfileBottomMain} />
+        <Route path='/users/:userId/about' component={ProfileBottomAbout} />
       </section>
     )
   }

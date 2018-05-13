@@ -13,11 +13,11 @@
 #  fav_toy             :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  description         :text
 #
 
 class Profile < ApplicationRecord
   validates :user_id, presence: true, uniqueness: true
 
-  belongs_to :user,
-  dependent: :destroy
+  belongs_to :user
 end

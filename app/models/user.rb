@@ -32,7 +32,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_one :profile
+  has_one :profile,
+    dependent: :destroy
 
   attr_reader :password
 

@@ -30,8 +30,3 @@ export default class NavBar extends Component {
     )
   }
 }
-
-
-
-
-// <img className='navAvi' src={window.defaultImage} />
