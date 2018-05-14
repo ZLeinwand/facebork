@@ -37,11 +37,17 @@ class User < ApplicationRecord
 
   has_many :posts_made,
     foreign_key: :author_id,
-    class_name: :Post
+    class_name: :Post,
+    dependent: :destroy
 
   has_many :posts_on_wall,
     foreign_key: :wall_id,
     class_name: :Post
+
+  has_many :comments,
+    foreign_key: :author_id,
+    class_name: :Comment,
+    dependent: :destroy
 
   attr_reader :password
 

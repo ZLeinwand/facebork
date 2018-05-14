@@ -13,7 +13,8 @@ const receivePosts = (payload) => {
   return {
     type: RECEIVE_POSTS,
     posts: payload.posts,
-    users: payload.users
+    users: payload.users,
+    comments: payload.comments
   }
 }
 

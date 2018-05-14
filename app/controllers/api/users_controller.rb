@@ -31,7 +31,14 @@ class Api::UsersController < ApplicationController
   def index
     #current_user.friends should get all users from friends list
     #User.find_by user query string from search to find users with find friends
-    @users = User.all
+
+    #first get all friends of user
+    #then get all posts of all user friends and user
+
+    # create an array from ids of @users
+    # users_friends.pluck(&:id)
+
+    # users.index.json.jbuilder ---- postIds = @posts.pluck(&:id)
   end
 
   def destroy

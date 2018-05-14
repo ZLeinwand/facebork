@@ -20,4 +20,6 @@ class Post < ApplicationRecord
   belongs_to :users_wall,
     foreign_key: :wall_id,
     class_name: :User
+
+  has_many :comments
 end
