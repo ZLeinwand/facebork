@@ -1,0 +1,53 @@
+.commentAvi {
+  height: 28px;
+  width: 28px;
+  border-radius: 50px;
+}
+
+.singleComment {
+  display: flex;
+  // align-items: center;
+  min-height: 30px;
+  width: 460px;
+  // background-color: lightgray;
+  // border: 1px solid yellow;
+  margin-left: 20px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+
+
+.commentUserName {
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-top: 8px;
+  min-width: 85px;
+  color: #36589f;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+
+.commentBy {
+  display: flex;
+  word-wrap: break-word;
+  min-height: 30px;
+  margin-left: 10px;
+  width: 400px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.commentBy > a {
+  height: 20px;
+}
+
+.commentText2 {
+  max-width: 315px;
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: 400;
+  margin-right: 20px;
+}
