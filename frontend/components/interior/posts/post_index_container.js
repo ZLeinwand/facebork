@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   const postArray = state.entities.posts.post_order.map((postId) => {
     return state.entities.posts[postId]
   })
-
   return {
     posts: postArray,
     wallId: ownProps.match.params.userId,

@@ -9,10 +9,11 @@ export const fetchWallPosts = (wallId) => (dispatch) => {
   return APIUtil.fetchWallPosts(wallId).then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
 }
 
-const receivePosts = (posts) => {
+const receivePosts = (payload) => {
   return {
     type: RECEIVE_POSTS,
-    posts
+    posts: payload.posts,
+    users: payload.users
   }
 }
 

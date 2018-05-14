@@ -5,27 +5,28 @@ export default class PostIndex extends Component {
 
 
   componentDidMount(){
+    // debugger
     this.props.fetchPosts(this.props.match.params.userId)
   }
 
-  componentWillReceiveProps(oldProps){
+  componentWillReceiveProps(newProps){
     // debugger
-    if (this.props.match.params.userId != oldProps.match.params.userId){
-      this.props.fetchPosts(this.props.wallId)
+    if (this.props.match.params.userId != newProps.match.params.userId){
+      // debugger
+      this.props.fetchPosts(newProps.match.params.userId)
     }
   }
 
   render(){
-    let posts = []
+    let posts = "NO POSTS YET"
       if (this.props.posts.length > 0) {
-        debugger
-        posts = this.props.posts.map( (post) => (<PostIndexItem post={post} poster={this.props.users[post.author_id]} />) )
+        // debugger
+        posts = this.props.posts.map( (post, idx) => (<PostIndexItem post={post} key={idx} poster={this.props.users[post.author_id]} />) )
       }
 
     return (
       <section className='postIndexContainer'>
         {posts}
-        <h1>POSTS GO HERE</h1>
       </section>
     )
   }
