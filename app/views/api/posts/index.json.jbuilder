@@ -21,6 +21,7 @@ end
 
 
 json.comments do
+  json.hng 'wat'
   comments.each do |comment|
     authors << comment.author
 

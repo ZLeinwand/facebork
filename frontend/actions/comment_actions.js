@@ -10,7 +10,7 @@ export const updateComment = (comment) => (dispatch) => {
 }
 
 export const deleteComment = (commentId) => (dispatch) => {
-  return APIUtil.deleteComment(commentId).then(() => dispatch(removeComment(commentId)), (errors) => dispatch(receiveCommentErrors(errors)))
+  return APIUtil.deleteComment(commentId).then((posts) => dispatch(receivePosts(posts)))
 }
 
 export const REMOVE_COMMENT = 'REMOVE_COMMENT'

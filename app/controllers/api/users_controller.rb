@@ -41,8 +41,8 @@ class Api::UsersController < ApplicationController
     # users.index.json.jbuilder ---- postIds = @posts.pluck(&:id)
   end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
   private
 

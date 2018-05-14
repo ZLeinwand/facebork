@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import NewCommentForm from '../comments/new_comment_form_container'
 
 export default (props) => {
   // debugger
@@ -25,6 +26,7 @@ export default (props) => {
       </div>
       <div className='commentContainer'>
         COMMENTS HERE
+        <NewCommentForm postId={props.post.id} />
       </div>
     </div>
   )
