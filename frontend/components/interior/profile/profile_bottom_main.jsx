@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import SmallProfileCard from './small_profile_card'
+import NewPostForm from '../posts/new_post_form_container'
+import PostIndex from '../posts/post_index_container'
 
 
 export default class profileBottomMain extends Component {
@@ -15,7 +17,10 @@ export default class profileBottomMain extends Component {
         <section className='profilePageSectionLeft'>
           <SmallProfileCard profile={profile}/>
         </section>
-        <section className='profilePageSectionRight'></section>
+        <section className='profilePageSectionRight'>
+          <NewPostForm />
+          <PostIndex />
+        </section>
       </main>
     )
   }
