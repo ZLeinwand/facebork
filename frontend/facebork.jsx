@@ -5,6 +5,7 @@ import ReactDom from 'react-dom'
 import * as Actions from './actions/session_actions'
 import * as ProfileActions from './actions/profile_actions'
 import * as PostActions from './actions/post_actions'
+import * as CommentActions from  './actions/comment_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch
   window.profileApi = ProfileActions
   window.postApi = PostActions
+  window.commentApi = CommentActions
 
   if (window.currentUser) {
     store.dispatch(Actions.receiveCurrentUser(window.currentUser))

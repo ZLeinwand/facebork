@@ -1,8 +1,8 @@
 class Api::PostsController < ApplicationController
   def index
     @posts = Post
-      .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
       .includes(:author, comments: [:author])
+      .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
   end
 
   def create
@@ -10,8 +10,8 @@ class Api::PostsController < ApplicationController
     @post.author_id = current_user.id
     if @post.save
       @posts = Post
-        .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
         .includes(:author, comments: [:author])
+        .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
 
       render :index
     else
@@ -24,8 +24,8 @@ class Api::PostsController < ApplicationController
 
     if @post.update(params[:body])
       @posts = Post
-        .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
         .includes(:author, comments: [:author])
+        .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
       render :index
     else
       render json: @post.errors.full_messages, status: 420
