@@ -12,6 +12,9 @@ export default class CommentForm extends Component {
     this.update = this.update.bind(this)
   }
 
+  componentWillReceiveProps(newProps) {
+    this.setState({post_id: newProps.postId})
+  }
 
   submitHandler(e) {
     e.preventDefault()

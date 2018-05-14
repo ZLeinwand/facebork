@@ -1,4 +1,5 @@
 import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST } from '../../actions/post_actions'
+import { RECEIVE_COMMENT } from '../../actions/comment_actions'
 import { LOGOUT_USER } from '../../actions/session_actions'
 import merge from 'lodash/merge'
 
@@ -9,6 +10,10 @@ export default (state = { post_order: []}, action) => {
       return { post_order: []}
     case RECEIVE_POSTS:
       return action.posts
+    case RECEIVE_COMMENT:
+      newState = merge({}, state)
+      newState[action.comment.post_id].comments.push(action.comment.id)
+      return newState
     case REMOVE_POST:
       newState = merge({}, state)
       let newPostOrder = merge([], state.post_order)

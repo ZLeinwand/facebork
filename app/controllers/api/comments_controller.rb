@@ -2,14 +2,9 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
-    
-    if @comment.save
-      @posts = Post
-        .includes(:author, comments: [:author])
-        .where(wall_id: @comment.post.wall_id)
-        .order(created_at: :desc)
 
-        render '/api/posts/index.json.jbuilder'
+    if @comment.save
+      render :show
     else
       render json: @comment.errors.full_messages, status: 420
     end
