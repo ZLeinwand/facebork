@@ -43,3 +43,7 @@ const removePost = (postId) => {
     postId
   }
 }
+
+export const fetchNewsFeedPosts = () => (dispatch) => {
+  return APIUtil.fetchNewsFeedPosts().then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PostIndexItem from './post_index_item'
+import isEqual from 'lodash/isequal'
 
 export default class PostIndex extends Component {
 
@@ -11,9 +12,17 @@ export default class PostIndex extends Component {
 
   componentWillReceiveProps(newProps){
     // debugger
-    if (this.props.match.params.userId != newProps.match.params.userId){
+    if (this.props.news){
+      const oldKeys = this.props.posts.map((post) => (post.id))
+      const newKeys = newProps.posts.map((post) => (post.id))
+      if (isEqual(oldKeys.sort(), newKeys.sort())) {
+        this.props.fetchPosts()
+      }
+    }else{
+      if (this.props.match.params.userId != newProps.match.params.userId){
       // debugger
-      this.props.fetchPosts(newProps.match.params.userId)
+        this.props.fetchPosts(newProps.match.params.userId)
+      }
     }
   }
 

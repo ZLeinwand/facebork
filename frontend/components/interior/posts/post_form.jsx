@@ -14,7 +14,14 @@ export default class PostForm extends Component {
 
   submitHandler(e){
     e.preventDefault()
-    const wall_id = this.props.match.params.userId
+
+    let wall_id;
+    
+    if (this.props.news){
+      wall_id = null
+    } else {
+      wall_id = this.props.match.params.userId
+    }
     const data = { body: this.state.body, wall_id }
     this.props.action(data).then(() => this.setState({body: ''}))
   }

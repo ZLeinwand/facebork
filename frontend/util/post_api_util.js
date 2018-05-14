@@ -28,3 +28,9 @@ export const updatePost = (postData) => {
     data: { post: postData.body }
   })
 }
+
+export const fetchNewsFeedPosts = () => {
+  return $.ajax({
+    url:'/api/posts',
+  })
+}
