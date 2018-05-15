@@ -6,7 +6,7 @@ export default class PostIndex extends Component {
 
 
   componentDidMount(){
-    debugger
+    // debugger
     this.props.fetchPosts(this.props.match.params.userId)
   }
 

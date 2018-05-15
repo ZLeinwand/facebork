@@ -7,3 +7,10 @@ export const updateProfilePic = (profilePicData) => {
     data: profilePicData
   })
 }
+
+export const searchPeople = (query) => {
+  return $.ajax({
+    url: `/api/users`
+    data: { query }
+  })
+}

@@ -41,12 +41,49 @@ class Api::UsersController < ApplicationController
     # users.index.json.jbuilder ---- postIds = @posts.pluck(&:id)
   end
 
-  # def destroy
-  # end
+  def create_friendship
+    @friendship = current_user.friends_requested.new(friend_params)
+
+    if @friendship.save
+      head :ok
+    else
+      render json: @friendship.errors.full_messages
+    end
+  end
+
+  def update_friendship
+    friend_id = params[:id]
+
+
+    friendship = Friend.where(<<-SQL, current_user.id, friend_id, current_user.id, friend_id)
+      (friends.friender = ? AND friends.friendee = ?) OR (friends.friendee = ? AND friends.friender = ?)
+      SQL
+
+    if friendship.update(status: params[:friend][:status])
+      @user = current_user
+      render :show
+    else
+      render json: friendship.errors.full_messages
+    end
+  end
+
+  def destroy_friendship
+    friend_id = params[:id]
+    friendship = Friend.where(<<-SQL, current_user.id, friend_id, current_user.id, friend_id)
+      (friends.friender = ? AND friends.friendee = ?) OR (friends.friendee = ? AND friends.friender = ?)
+      SQL
+    friendship.destroy
+  end
+
+
 
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :avi, :cover_photo)
+  end
+
+  def friend_params
+    params.require(:friend).permit(:friendee_id, :status)
   end
 end

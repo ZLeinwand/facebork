@@ -49,8 +49,47 @@ class User < ApplicationRecord
     class_name: :Comment,
     dependent: :destroy
 
+  has_many :friends_requested,
+  foreign_key: :friender,
+  class_name: :Friend
+
+  has_many :requested_by,
+  foreign_key: :friendee,
+  class_name: :Friend
+
+  has_many :friends_by_me,
+  through: :friends_requested,
+  source: :in_friends
+
+  has_many :friends_by_other,
+  through: :requested_by,
+  source: :out_friends
+
   attr_reader :password
 
+  def friends
+    friendships = Friend.where(<<-SQL, self.id, self.id, "FRIENDS")
+      (friends.friender = ? OR friends.friendee = ?) AND friends.status = ?
+      SQL
+    friends_ids = friendships.pluck(:friender, :friendee).flatten.reject {|id| id == self.id }.join(', ')
+    if friends_ids.length > 0
+      friends = User.where("id IN (#{friends_ids})")
+    else
+      []
+    end
+  end
+
+  def friendship_status(other_user_id)
+    friendship = Friend.where(<<-SQL, self.id, other_user_id, self.id, other_user_id)
+      (friends.friender = ? AND friends.friendee = ?) OR (friends.friendee = ? AND friends.friender = ?)
+      SQL
+
+    if friendship.length > 0
+      return friendship.first.status
+    else
+      return "NOT_FRIENDS"
+    end
+  end
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)

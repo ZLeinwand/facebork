@@ -12,7 +12,6 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    debugger
     if params[:post][:wall_id] != ""
       @post = Post.new(post_params)
       news = false

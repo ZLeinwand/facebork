@@ -5,4 +5,5 @@ json.users do
 end
 json.user do
   json.partial! './api/users/user.json.jbuilder', user: @user
+  json.friends @user.friends.pluck(:id)
 end
