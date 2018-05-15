@@ -6,7 +6,7 @@ export default class PostIndex extends Component {
 
 
   componentDidMount(){
-    // debugger
+    debugger
     this.props.fetchPosts(this.props.match.params.userId)
   }
 
@@ -15,7 +15,8 @@ export default class PostIndex extends Component {
     if (this.props.news){
       const oldKeys = this.props.posts.map((post) => (post.id))
       const newKeys = newProps.posts.map((post) => (post.id))
-      if (isEqual(oldKeys.sort(), newKeys.sort())) {
+      // debugger
+      if (!isEqual(oldKeys.sort(), newKeys.sort())) {
         this.props.fetchPosts()
       }
     }else{

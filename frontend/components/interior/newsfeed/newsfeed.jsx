@@ -12,8 +12,10 @@ export default class NewsFeed extends Component {
 
     return (
       <section className='newsFeedContainer'>
-        <NewPostForm news={'news'}/>
-        <NewsFeedPostIndex news={'news'}/>
+        <main className='newsFeedPosts'>
+          <NewPostForm news={'news'}/>
+          <NewsFeedPostIndex news={'news'}/>
+        </main>
       </section>
     )
   }
