@@ -21,5 +21,9 @@ class Friend < ApplicationRecord
   foreign_key: :friendee,
   class_name: :User
 
+  def friendship
+    query = "id IN (#{[self.friender, self.friendee].join(', ')})"
+    User.where(query)
+  end
 
 end

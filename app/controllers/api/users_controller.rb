@@ -20,6 +20,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    debugger
     @user = User.find(params[:id])
     if @user.update(user_params)
       @profile = @user.profile
@@ -42,10 +43,13 @@ class Api::UsersController < ApplicationController
   end
 
   def create_friendship
+    # debugger
     @friendship = current_user.friends_requested.new(friend_params)
+    @friendship.status = "PENDING"
 
     if @friendship.save
-      head :ok
+      @user = @friendship.out_friends
+      render :show
     else
       render json: @friendship.errors.full_messages
     end
@@ -55,15 +59,16 @@ class Api::UsersController < ApplicationController
     friend_id = params[:id]
 
 
-    friendship = Friend.where(<<-SQL, current_user.id, friend_id, current_user.id, friend_id)
+    @friendship = Friend.where(<<-SQL, current_user.id, friend_id, current_user.id, friend_id)
       (friends.friender = ? AND friends.friendee = ?) OR (friends.friendee = ? AND friends.friender = ?)
       SQL
 
-    if friendship.update(status: params[:friend][:status])
-      @user = current_user
+    if @friendship.update(status: params[:friend][:status])
+      # debugger
+      @user = @friendship.first.in_friends
       render :show
     else
-      render json: friendship.errors.full_messages
+      render json: @friendship.errors.full_messages
     end
   end
 
@@ -84,6 +89,6 @@ class Api::UsersController < ApplicationController
   end
 
   def friend_params
-    params.require(:friend).permit(:friendee_id, :status)
+    params.require(:friend).permit(:friendee, :status)
   end
 end

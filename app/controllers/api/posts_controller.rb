@@ -6,7 +6,10 @@ class Api::PostsController < ApplicationController
         .includes(:author, comments: [:author])
         .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
     else
-      @posts = Post
+      friends = current_user.friends.pluck(:id)
+      friends << current_user.id
+      query = "(#{friends.join(', ')})"
+      @posts = Post.where("author_id IN #{query} AND wall_id = author_id")
         .includes(:author, comments: [:author]).order(created_at: :desc)
     end
   end

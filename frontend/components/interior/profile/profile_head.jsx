@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import FriendshipButton from '../friendships/friendship_button_container'
 
 
 export default class ProfileHead extends Component{
@@ -85,6 +86,12 @@ export default class ProfileHead extends Component{
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center'
     }
+
+    let button = ''
+    if (this.props.currentUser != this.props.match.params.userId) {
+      button = <FriendshipButton />
+    }
+
     return (
       <section id='profileHead'>
         <div id='coverPhoto' style={ coverStyle }>
@@ -114,7 +121,9 @@ export default class ProfileHead extends Component{
           <div><Link to={`/users/${this.props.match.params.userId}`}>Timeline</Link></div>
           <div><Link to={`/users/${this.props.match.params.userId}/about`}>About</Link></div>
           <div>Friends</div>
-          <div>Photos</div>
+          <div>
+            {button}
+          </div>
         </nav>
       </section>
     )

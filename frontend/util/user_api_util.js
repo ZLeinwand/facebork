@@ -10,7 +10,7 @@ export const updateProfilePic = (profilePicData) => {
 
 export const searchPeople = (query) => {
   return $.ajax({
-    url: `/api/users`
+    url: `/api/users`,
     data: { query }
   })
 }
