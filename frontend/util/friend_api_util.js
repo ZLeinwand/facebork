@@ -20,3 +20,9 @@ export const destroyFriendship = (friendId) => {
     url: `/api/users/${friendId}/friendships`
   })
 }
+
+export const fetchFriends = (userId) => {
+  return $.ajax({
+    url: `/api/users/${userId}/friendships`
+  })
+}

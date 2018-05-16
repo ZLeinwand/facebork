@@ -1,0 +1,25 @@
+.profileBottomFriends {
+  width: 876px;
+  min-height: 200px;
+  margin: auto;
+  background-color: lightgray;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  padding: 12px;
+}
+
+.friendsSearchNav {
+  display: flex;
+  height: 55px;
+  justify-content: space-between;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: white;
+}
+
+.friendsSearchBar {
+  height: 30px;
+  width: 90px;
+}

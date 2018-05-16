@@ -27,3 +27,18 @@ const receiveUser = (user) => {
     user
   }
 }
+
+export const RECEIVE_USERS = 'RECEIVE_USERS'
+
+export const receiveUsers = (users) => {
+  return {
+    type: RECEIVE_USERS,
+    users
+  }
+}
+
+export const fetchFriends = (friendId) => (dispatch) => {
+  return APIUtil.fetchFriends(friendId)
+    .then((users) => dispatch(receiveUsers(users)),
+    (errors) => dispatch(receiveUserErrors(errors)))
+}

@@ -1,7 +1,7 @@
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions'
 import { RECEIVE_PROFILE } from '../../actions/profile_actions'
 import { RECEIVE_POSTS } from '../../actions/post_actions'
-import { RECEIVE_USER } from '../../actions/friendship_actions'
+import { RECEIVE_USER, RECEIVE_USERS } from '../../actions/friendship_actions'
 import merge from 'lodash/merge'
 
 export default (state = {}, action) => {
@@ -17,8 +17,11 @@ export default (state = {}, action) => {
       return newState;
     case RECEIVE_USER:
       newState = merge({}, state)
-      newState[action.user.id] = action.user
+      newState[action.user.id] = merge({}, newState[action.user.id], action.user)
       return newState
+    case RECEIVE_USERS:
+      newState = merge({}, state, action.users)
+      return newState;
     case RECEIVE_POSTS:
       newState = merge({}, state, action.users)
       return newState

@@ -5,8 +5,13 @@ import { withRouter } from 'react-router-dom'
 
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
-  const profileId = ownProps.match.params.userId
+  debugger
+  let profileId;
+    if (ownProps.specialBoi){
+      profileId = ownProps.specialBoi
+    }else {
+    profileId = ownProps.match.params.userId
+  }
   let status = 'NOT_FRIENDS'
   if (state.entities.users[profileId]){
       status = state.entities.users[profileId].status

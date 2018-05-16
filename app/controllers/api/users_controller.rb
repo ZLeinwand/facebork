@@ -42,6 +42,11 @@ class Api::UsersController < ApplicationController
     # users.index.json.jbuilder ---- postIds = @posts.pluck(&:id)
   end
 
+  def get_friends
+    @users = User.find(params[:id]).friends.includes(:profile)
+    render :index
+  end
+
   def create_friendship
     # debugger
     @friendship = current_user.friends_requested.new(friend_params)

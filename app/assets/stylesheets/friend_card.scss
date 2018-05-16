@@ -1,0 +1,50 @@
+.friendCardContainer {
+  width: 430px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 1px;
+  margin-bottom: 3px;
+}
+
+.friendAvi {
+  height: 100px;
+  width: 100px;
+}
+.friendIndexContainer {
+  width: 876px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.friendCardFull {
+  display: flex;
+}
+
+.friendNameContainer {
+  // border: 1px solid red;
+  font-size: 22px;
+  width: 328px;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.friendBottomRight {
+  display: flex;
+  padding: 12px;
+}
+.friendAbout {
+  width: 214px;
+}
+
+.friendIndexFriendshipButton {
+  display: flex;
+  align-items: center;
+  height: 73px;
+}
+
+.friendCardName {
+  font-weight: 300;
+  font-size: 18px;
+  color: #4267b2
+}

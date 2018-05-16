@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     post "users/:id/friendships", to: "users#create_friendship"
     patch "users/:id/friendships", to: "users#update_friendship"
     delete "users/:id/friendships", to: "users#destroy_friendship"
+    get "users/:id/friendships", to: "users#get_friends"
 
   end
 

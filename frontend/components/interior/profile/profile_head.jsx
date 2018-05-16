@@ -120,7 +120,7 @@ export default class ProfileHead extends Component{
           <span></span>
           <div><Link to={`/users/${this.props.match.params.userId}`}>Timeline</Link></div>
           <div><Link to={`/users/${this.props.match.params.userId}/about`}>About</Link></div>
-          <div>Friends</div>
+          <div><Link to={`/users/${this.props.match.params.userId}/friends`}>Friends</Link></div>
           <div>
             {button}
           </div>

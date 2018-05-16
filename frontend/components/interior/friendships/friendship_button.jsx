@@ -49,7 +49,7 @@ export default class FriendshipButton extends Component {
           type = 'Pending'
           break;
         default:
-          type = 'Send Friend Request'
+          type = 'Add Friend'
           action = this.makeFriendRequest
       }
     }
