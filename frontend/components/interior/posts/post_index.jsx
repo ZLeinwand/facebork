@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PostIndexItem from './post_index_item'
-import isEqual from 'lodash/isequal'
+import isEqual from 'lodash/isEqual'
 
 export default class PostIndex extends Component {
 
