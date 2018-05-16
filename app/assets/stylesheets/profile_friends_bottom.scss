@@ -21,5 +21,13 @@
 
 .friendsSearchBar {
   height: 30px;
-  width: 90px;
+  width: 140px;
+  margin-right: 14px;
+  border-radius: 2px;
+  // border: 1px solid lightgray;
+}
+
+.friendsNavHeader {
+  font-weight: 400;
+  margin-left: 24px;
 }

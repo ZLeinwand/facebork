@@ -47,6 +47,12 @@ class Api::UsersController < ApplicationController
     render :index
   end
 
+  def search
+    # debugger
+    @users = User.where("name LIKE ?", "%#{(params[:query])}%").includes(:profile)
+    render :search_results
+  end
+
   def create_friendship
     # debugger
     @friendship = current_user.friends_requested.new(friend_params)

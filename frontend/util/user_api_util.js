@@ -8,9 +8,9 @@ export const updateProfilePic = (profilePicData) => {
   })
 }
 
-export const searchPeople = (query) => {
+export const searchBorkers = (query) => {
   return $.ajax({
-    url: `/api/users`,
+    url: `/api/users/search`,
     data: { query }
   })
 }

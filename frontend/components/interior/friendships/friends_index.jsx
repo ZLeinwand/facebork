@@ -18,8 +18,11 @@ export default class FriendIndex extends Component {
         let friend = this.props.friends[i]
         if (typeof friend === 'undefined' || friend.id === this.props.currentUserId){
           continue;
-        }else{
+        }
+        else if (this.props.query === "" || this.props.query === friend.name.slice(0, this.props.query.length)) {
           friends.push((<FriendsListItem friend={friend} key={i} />))
+        }else{
+          continue;
         }
       }
     }

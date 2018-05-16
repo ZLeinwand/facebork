@@ -42,7 +42,7 @@ export default class FriendshipButton extends Component {
           // action = this.endFriendship
           break;
         case "IN_PENDING":
-          type = 'Accept Friendship'
+          type = 'Accept Friend'
           action = this.acceptFriendRequest
           break;
         case "OUT_PENDING":

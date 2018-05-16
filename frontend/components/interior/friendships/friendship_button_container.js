@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  // debugger
   let profileId;
     if (ownProps.specialBoi){
       profileId = ownProps.specialBoi

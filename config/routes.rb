@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   namespace :api, defaults: { format: :json } do
+    get "users/search", to: "users#search"
     resources :users, only: [:update, :show, :create, :index]
 
     resources :profiles, only: [:show, :update]

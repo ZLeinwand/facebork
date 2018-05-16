@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import NavBarSearch from './nav_bar_search_container'
 
 export default class NavBar extends Component {
 
@@ -13,7 +14,9 @@ export default class NavBar extends Component {
         <nav className='interiorNav'>
           <div className='leftInteriorNav'>
             <Link to='/' ><div className='homeLogoButton'></div></Link>
-            <div>SEARCH BAR</div>
+            <div>
+              <NavBarSearch />
+            </div>
           </div>
           <div className='rightInteriorNav'>
             <Link to={`/users/${this.props.userId}`}>
