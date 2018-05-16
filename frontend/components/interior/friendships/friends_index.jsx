@@ -11,7 +11,6 @@ export default class FriendIndex extends Component {
 
 
   render () {
-    // debugger
     let friends = []
     if (this.props.friends){
       for (let i = 0; i < this.props.friends.length; i++){

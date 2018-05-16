@@ -34,7 +34,6 @@ export default class FriendshipButton extends Component {
   render() {
     let type = ''
     let action = (e) => console.log(e)
-    // debugger
     if (this.props.friendshipStatus){
       switch (this.props.friendshipStatus) {
         case "FRIENDS":

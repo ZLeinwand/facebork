@@ -5,7 +5,6 @@ import { fetchWallPosts } from '../../../actions/post_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   const postArray = state.entities.posts.post_order.map((postId) => {
     return state.entities.posts[postId]
   })

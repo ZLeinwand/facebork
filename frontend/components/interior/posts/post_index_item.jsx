@@ -4,7 +4,6 @@ import NewCommentForm from '../comments/new_comment_form_container'
 import CommentIndex from '../comments/comment_index_container'
 
 export default (props) => {
-  // debugger
   let avi = ''
   let id = ''
   let name = ''

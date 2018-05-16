@@ -11,7 +11,6 @@ export default class ProfileBottomAbout extends Component {
     if (this.props.match.params.userId == this.props.currentUserId){
       button = (<button onClick={this.props.openModal} className='updateProfileButton'>Update Profile</button>)
     }
-    // debugger
     return (
       <section className='aboutBorker'>
         <div className='marquee'>

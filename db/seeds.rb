@@ -38,7 +38,6 @@ profiles.each_with_index do |profile, idx|
     owners_names: owners_names[idx], breed: breed[idx], fav_toy: fav_toy[idx], description: descriptions[idx])
 end
 
-debugger
 authors = [users[0], users[0], users[1]]
 walls = [users[0], users[1], users[0]]
 bodys = ['first post', 'bork bork', 'yolozaddy']

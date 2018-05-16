@@ -20,7 +20,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    debugger
     @user = User.find(params[:id])
     if @user.update(user_params)
       @profile = @user.profile
@@ -48,13 +47,11 @@ class Api::UsersController < ApplicationController
   end
 
   def search
-    # debugger
     @users = User.where("name iLIKE ?", "%#{(params[:query])}%").includes(:profile)
     render :search_results
   end
 
   def create_friendship
-    # debugger
     @friendship = current_user.friends_requested.new(friend_params)
     @friendship.status = "PENDING"
 
@@ -75,7 +72,6 @@ class Api::UsersController < ApplicationController
       SQL
 
     if @friendship.update(status: params[:friend][:status])
-      # debugger
       @user = @friendship.first.in_friends
       render :show
     else

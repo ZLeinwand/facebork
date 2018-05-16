@@ -1,4 +1,3 @@
-# debugger
 json.partial! './api/profiles/profile.json.jbuilder', profile: @profile
 json.friends
 json.friends @user.friends.pluck(:id)

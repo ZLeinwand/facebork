@@ -3,7 +3,6 @@ import ProfileHead from './profile_head';
 import { updateProfilePic } from '../../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   const profileId = ownProps.match.params.userId
   return {
     currentUser: state.session.id,

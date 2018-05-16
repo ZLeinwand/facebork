@@ -1,6 +1,5 @@
 class Api::PostsController < ApplicationController
   def index
-    # debugger
     if params[:post]
       @posts = Post
         .includes(:author, comments: [:author])

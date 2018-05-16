@@ -5,7 +5,6 @@ class Api::ProfilesController < ApplicationController
   end
 
   def update
-    # debugger
     @user = User.find(params[:id])
     @profile = @user.profile
 

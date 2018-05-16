@@ -85,7 +85,6 @@ class User < ApplicationRecord
       SQL
 
     if friendship.length > 0
-      # debugger
       if friendship.first.status == 'PENDING'
         if friendship.first.friender == self.id
           return 'OUT_PENDING'

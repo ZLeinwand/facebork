@@ -7,7 +7,6 @@ export default class NavBar extends Component {
 
   //CONNECTED component will need to get the USER AVI and NAME from the state
   render(){
-    // debugger
 
     return (
       <div className='interiorHead'>

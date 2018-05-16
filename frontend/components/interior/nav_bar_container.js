@@ -4,7 +4,6 @@ import { logout } from '../../actions/session_actions'
 
 const mapStateToProps = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id]
-  // debugger
   return {
     userAvi: currentUser.avi_url,
     userName: currentUser.name,
