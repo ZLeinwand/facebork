@@ -49,7 +49,7 @@ class Api::UsersController < ApplicationController
 
   def search
     # debugger
-    @users = User.where("name LIKE ?", "%#{(params[:query])}%").includes(:profile)
+    @users = User.where("name iLIKE ?", "%#{(params[:query])}%").includes(:profile)
     render :search_results
   end
 

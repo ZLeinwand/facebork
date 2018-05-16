@@ -19,7 +19,7 @@ export default class FriendIndex extends Component {
         if (typeof friend === 'undefined' || friend.id === this.props.currentUserId){
           continue;
         }
-        else if (this.props.query === "" || this.props.query === friend.name.slice(0, this.props.query.length)) {
+        else if (this.props.query === "" || friend.name.toUpperCase().includes(this.props.query.toUpperCase())) {
           friends.push((<FriendsListItem friend={friend} key={i} />))
         }else{
           continue;
