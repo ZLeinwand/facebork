@@ -14,7 +14,7 @@ export default (props) => {
       </div>
       <div className='bottomOfCard'>
         <h5>Born on {props.profile.birthday}</h5>
-        <h5>Works as a {props.profile.job_title}</h5>
+        <h5>Works as {props.profile.job_title}</h5>
         <h5>Borks in {props.profile.lives_in}</h5>
       </div>
     </div>

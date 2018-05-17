@@ -28,7 +28,7 @@ export default (props) => {
             <span className='features'>
               <div>
                 <img src={window.fb1} />
-                <p><b>See photos and updates</b> from friends in News Feed </p>
+                <p><b>See borks and updates</b> from friends in News Feed </p>
               </div>
               <div>
                 <img src={window.fb2} />
