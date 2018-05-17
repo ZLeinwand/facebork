@@ -4,7 +4,8 @@ import { createComment } from '../../../actions/comment_actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    commentText: ''
+    commentText: '',
+    userAvi: state.entities.users[state.session.id].avi_url
   }
 }
 

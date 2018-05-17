@@ -33,6 +33,7 @@ export default class CommentForm extends Component {
     return (
       <div className='commentFormContainer'>
         <form onSubmit={this.submitHandler} className='commentForm'>
+          <img src={this.props.userAvi} className='cardIcon' />
           <input onChange={this.update}
             className='commentText'
             value={this.state.comment_text}
