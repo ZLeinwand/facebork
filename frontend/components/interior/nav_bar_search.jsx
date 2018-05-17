@@ -16,7 +16,9 @@ export default class NavBarSearch extends Component {
   update(e) {
     this.setState({ query: e.currentTarget.value }, () => {
       if (this.state.query.length > 0){
-        this.timeout = setTimeout(() => this.sendQuery(this.state.query), 500);
+        this.timeout = setTimeout(() => {
+          document.addEventListener('click', () => this.props.clearSearchResults(), {once: true})
+          this.sendQuery(this.state.query)}, 500);
       } else {
         this.props.clearSearchResults()
       }

@@ -118,9 +118,9 @@ export default class ProfileHead extends Component{
         </div>
         <nav id='profileBar'>
           <span></span>
-          <div><Link to={`/users/${this.props.match.params.userId}`}>Timeline</Link></div>
-          <div><Link to={`/users/${this.props.match.params.userId}/about`}>About</Link></div>
-          <div><Link to={`/users/${this.props.match.params.userId}/friends`}>Friends</Link></div>
+          <Link to={`/users/${this.props.match.params.userId}`}><div>Timeline</div></Link>
+          <Link to={`/users/${this.props.match.params.userId}/about`}><div>About</div></Link>
+          <Link to={`/users/${this.props.match.params.userId}/friends`}><div>Friends</div></Link>
           <div>
             {button}
           </div>

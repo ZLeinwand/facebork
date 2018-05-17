@@ -2,7 +2,7 @@
   width: 500px;
   height: 200px;
   padding: 14px;
-  background-color: #cac9c9;
+  background-color: #fff;
   border-radius: 3px;
   border: 1px solid darkgray;
 }
@@ -10,7 +10,11 @@
 .postBox {
   height: 118px;
   width: 488px;
-  border-radius: 3px;
+  border-top: 1px solid lightgray;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 1px solid lightgray;
+  // border-radius: 3px;
   padding: 6px;
 }
 
@@ -20,6 +24,7 @@
   margin-bottom: 10px;
   margin-top: 0px;
   margin-left: 15px;
+  // border-bottom: 1px solid lightgray;
 }
 
 .postButton {
@@ -32,7 +37,29 @@
   font-size: 16px;
   color: white;
   font-weight: 700;
-  border: 1px solid #2d5115;
+  // border: 1px solid #2d5115;
+  border-radius: 2px;
+  text-shadow: 1px 1px #000000;
+  // box-shadow: 0 0 0 0px #95d67b, inset 0px 1px 2px 0px #fff;
+}
+
+.postButton:hover {
+  cursor: pointer;
+  background-color: #3B5998;
+}
+
+.postButtonGray {
+  margin: 5px 0 0 0;
+  // background: linear-gradient(#4265b2, #3b5da9);
+  background-color: #4266b2;
+  opacity: .4;
+  width: 502px;
+  height: 30px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  // border: 1px solid #2d5115;
   border-radius: 2px;
   text-shadow: 1px 1px #000000;
   box-shadow: 0 0 0 0px #95d67b, inset 0px 1px 2px 0px #fff;

@@ -42,16 +42,22 @@
 .postBody {
   padding-left: 10px;
   padding-right: 10px;
+
 }
 
 .commentContainer {
   background-color: #f2f3f5;
-  min-height: 60px;
+  min-height: 43px;
   margin-top: 5px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
   border: 1px solid darkgray;
   border-radius: 3px;
   text-align: right;
   // text-justify: right;
+}
+
+.postText {
+  font-size: 16px;
+  font-weight: 300;
 }

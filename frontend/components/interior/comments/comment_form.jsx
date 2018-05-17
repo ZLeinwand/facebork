@@ -39,9 +39,10 @@ export default class CommentForm extends Component {
             maxLength='140'
             placeholder='Bork back on this post'>
           </input>
-          <button className='addCommentButton'>Bork</button>
         </form>
       </div>
     )
   }
 }
+
+// <button className='addCommentButton'>Bork</button>

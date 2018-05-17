@@ -54,18 +54,22 @@
   align-items: center;
 }
 
-#profileBar > div {
+#profileBar > a > div, #profileBar > div {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
   height: 44px;
-  width: 220px;
+  width: 178px;
   border-left: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   color: #365799;
   font-family: sans-serif;
   font-size: 15px
+}
+
+#profileBar > a > div:hover {
+  background-color: #f6f7f9
 }
 
 #profileBar > span {
@@ -258,8 +262,9 @@ a {
 
 .aboutList {
   background-color: white;
+  padding-left: 120px;
   min-height: 250px;
-  width: 640px;
+  width: 540px;
   border-left: 1px solid darkgray;
   border-right: 1px solid darkgray;
   margin-top: 0;
@@ -269,7 +274,8 @@ a {
 }
 
 .aboutList > p {
-  margin:auto;
+  // margin:auto;
+  margin-top: 8px;
   font-size: 14px;
   text-rendering: optimizeLegibility;
   color: #4b4f56;

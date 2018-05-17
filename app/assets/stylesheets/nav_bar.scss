@@ -59,10 +59,12 @@
   display: flex;
   justify-content: space-between;
   align-items:center;
+  padding-right: 4px;
+  padding-left: 4px;
   // min-width: 110px
 }
 
-.nameSpan:hover .logout:hover {
+.nameSpan:hover {
   background-color: #3B5998
 }
 
@@ -78,7 +80,8 @@
 }
 
 .logout:hover {
-  background-color: #3B5998
+  background-color: #3B5998;
+  cursor: pointer;
 }
 
 a {
@@ -132,4 +135,8 @@ a {
 .searchName {
   margin-left: 10px;
   color: #4266b2;
+}
+
+.searchCard:hover {
+  background-color: #f6f7f9
 }

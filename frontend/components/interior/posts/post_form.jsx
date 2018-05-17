@@ -16,7 +16,7 @@ export default class PostForm extends Component {
     e.preventDefault()
 
     let wall_id;
-    
+
     if (this.props.news){
       wall_id = null
     } else {
@@ -29,22 +29,30 @@ export default class PostForm extends Component {
 
   render(){
     let name = ""
+    let button = <button className='postButtonGray'>Bork</button>
     if (this.props.currentUser){
       name = this.props.currentUser.name
+    }
+    if (typeof this.state.body !== 'undefined') {
+      if (this.state.body.length > 0){
+        button = <button onClick={this.submitHandler} className='postButton'>Bork</button>
+      } else {
+        button = <button className='postButtonGray'>Bork</button>
+      }
     }
     return (
       <div className='postFormOuter'>
         <div>
-          <h1 className='postHeader'>Bork a new post!</h1>
+          <h1 className='postHeader'>Make a Bork</h1>
         </div>
-        <form onSubmit={this.submitHandler}>
+        <div>
           <textarea
             className='postBox'
-            placeholder={`Whats on your mind ${name}`}
+            placeholder={`What's on your mind ${name}?`}
             onChange={this.update}
             value={this.state.body}></textarea>
-          <button className='postButton'>Create Post</button>
-        </form>
+          {button}
+        </div>
       </div>
     )
   }

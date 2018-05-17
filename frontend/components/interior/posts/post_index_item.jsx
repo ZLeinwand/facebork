@@ -21,7 +21,7 @@ export default (props) => {
           </div>
         </Link>
         <div className='postBody'>
-          <h5>{props.post.body}</h5>
+          <h5 className='postText'>{props.post.body}</h5>
         </div>
       </div>
       <div className='commentContainer'>
