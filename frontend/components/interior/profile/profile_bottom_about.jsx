@@ -20,14 +20,14 @@ export default class ProfileBottomAbout extends Component {
         </div>
         <div>
           <ul className='aboutList'>
-            <p>Born on {profile.birthday}</p>
-            <p>Works as {profile.job_title}</p>
-            <p>Lives in {profile.lives_in}</p>
-            <p>Relationship Status: {profile.relationship_status}</p>
-            <p>Owners Names: {profile.owners_names}</p>
-            <p>Breed: {profile.breed}</p>
-            <p>Favorite Toy: {profile.fav_toy}</p>
-            <p>About Me: {profile.description}</p>
+            <p><img src={window.staticAssets.cakeIcon} className='aboutIcon'/>Born on {profile.birthday}</p>
+            <p><img src={window.staticAssets.jobIcon} className='aboutIcon'/>Works as {profile.job_title}</p>
+            <p><img src={window.staticAssets.houseIcon} className='aboutIcon'/>Lives in {profile.lives_in}</p>
+            <p><img src={window.staticAssets.heartIcon} className='aboutIcon'/>Relationship Status: {profile.relationship_status}</p>
+            <p><img src={window.staticAssets.peopleIcon} className='aboutIcon'/>Owners Names: {profile.owners_names}</p>
+            <p><img src={window.staticAssets.dogIcon} className='aboutIcon'/>Breed: {profile.breed}</p>
+            <p><img src={window.staticAssets.toyIcon} className='aboutIcon'/>Favorite Toy: {profile.fav_toy}</p>
+            <p><img src={window.staticAssets.dog2Icon} className='aboutIcon'/>About Me: {profile.description}</p>
           </ul>
         </div>
       </section>

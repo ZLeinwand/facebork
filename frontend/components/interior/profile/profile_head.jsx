@@ -87,7 +87,7 @@ export default class ProfileHead extends Component{
       backgroundPosition: 'center'
     }
 
-    let button = <Link to={`/users/${this.props.match.params.userId}/requests`}><div>Requests</div></Link>
+    let button = <Link to={`/users/${this.props.match.params.userId}/requests`}><span className='lastProfileNavSpan'>Requests</span></Link>
     if (this.props.currentUser != this.props.match.params.userId) {
       button = (
         <div>

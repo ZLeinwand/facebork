@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import FriendsListItem from './friends_list_item'
+import isEqual from 'lodash/isEqual'
 
 
 export default class RequestIndex extends Component {
 
   componentDidMount() {
     this.props.fetchFriendRequests()
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (!isEqual(this.props.requesters, newProps.requesters)){
+      this.props.fetchFriendRequests()
+    }
   }
 
 

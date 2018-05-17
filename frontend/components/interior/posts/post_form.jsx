@@ -42,7 +42,8 @@ export default class PostForm extends Component {
     }
     return (
       <div className='postFormOuter'>
-        <div>
+        <div className='borkPostTop'>
+          <img src={window.borkPostIcon} className='borkPost'/>
           <h1 className='postHeader'>Make a Bork</h1>
         </div>
         <div>
