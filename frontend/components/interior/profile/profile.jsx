@@ -3,6 +3,7 @@ import ProfileHead from './profile_head_container'
 import ProfileBottomMain from './profile_bottom_main_container'
 import ProfileBottomAbout from './profile_bottom_about_container'
 import ProfileBottomFriends from './profile_bottom_friends'
+import ProfileBottomRequests from './profile_bottom_request'
 import { Route } from 'react-router-dom'
 
 
@@ -37,6 +38,7 @@ export default class Profile extends Component {
         <Route path='/users/:userId' exact component={ProfileBottomMain} />
         <Route path='/users/:userId/about' component={ProfileBottomAbout} />
         <Route path='/users/:userId/friends' component={ProfileBottomFriends} />
+        <Route path='/users/:userId/requests' component={ProfileBottomRequests} />
       </section>
     )
   }

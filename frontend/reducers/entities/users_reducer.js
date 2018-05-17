@@ -5,7 +5,7 @@ import { RECEIVE_USER, RECEIVE_USERS, RECEIVE_REQUESTERS } from '../../actions/f
 import merge from 'lodash/merge'
 import { RECEIVE_SEARCH, CLEAR_SEARCH_RESULTS } from '../../actions/user_actions'
 
-export default (state = { search_results: [] }, action) => {
+export default (state = { search_results: [], requests: [] }, action) => {
   let newState
   switch (action.type) {
     case RECEIVE_CURRENT_USER:

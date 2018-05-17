@@ -24,7 +24,7 @@
   margin-top: 3px;
   display: flex;
   justify-content: space-between;
-  width: 350px;
+  width: 380px;
   align-items: center;
 }
 
@@ -113,18 +113,19 @@ a {
 
 .searchCard {
   width: 255px;
-  height: 30px;
+  height: 40px;
   display: flex;
   align-items: center;
   background-color: white;
   // float: left;
   position: relative;
   overflow-y: auto;
+  border-bottom: 1px solid lightgray;
 }
 
 .searchCardAvi {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
 }
 
 .searchResults {
@@ -135,6 +136,8 @@ a {
 .searchName {
   margin-left: 10px;
   color: #4266b2;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .searchCard:hover {

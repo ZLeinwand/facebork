@@ -44,7 +44,6 @@ class Api::UsersController < ApplicationController
   def get_friend_requests
     friendships = current_user.requested_by.where("status = 'PENDING' ").pluck(:friender)
     query = "(#{friendships.join(',')})"
-    debugger
     if friendships.length > 0
       @users = User.where("id in #{query}").includes(:profile)
     else

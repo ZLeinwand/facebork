@@ -31,3 +31,19 @@
   font-weight: 400;
   margin-left: 24px;
 }
+
+.emptyFriendships {
+  margin: auto;
+  width: 100%;
+  min-height: 200px;
+  background-color: white;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.friendText {
+  margin:auto;
+
+}

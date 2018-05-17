@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RequestIndex from '../friendships/friends_request_container'
+import RequestIndex from '../friendships/request_index_container'
 
 export default class ProfileBottomFriends extends Component {
   constructor(props){
@@ -29,7 +29,7 @@ export default class ProfileBottomFriends extends Component {
           </input>
         </nav>
         <div>
-          <FriendsIndex query={this.state.query} />
+          <RequestIndex query={this.state.query} />
         </div>
       </section>
     )
