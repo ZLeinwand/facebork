@@ -99,6 +99,15 @@ class User < ApplicationRecord
     end
   end
 
+  def seed_friends(num)
+    users = User.all.pluck(:id).shuffle
+    users.delete(self.id)
+    num.times do
+      friend = users.pop
+      Friend.create(friender: self.id, friendee: friend, status: 'FRIENDS')
+    end
+  end
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end

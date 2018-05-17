@@ -1,7 +1,7 @@
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions'
 import { RECEIVE_PROFILE } from '../../actions/profile_actions'
 import { RECEIVE_POSTS } from '../../actions/post_actions'
-import { RECEIVE_USER, RECEIVE_USERS } from '../../actions/friendship_actions'
+import { RECEIVE_USER, RECEIVE_USERS, RECEIVE_REQUESTERS } from '../../actions/friendship_actions'
 import merge from 'lodash/merge'
 import { RECEIVE_SEARCH, CLEAR_SEARCH_RESULTS } from '../../actions/user_actions'
 
@@ -26,6 +26,12 @@ export default (state = { search_results: [] }, action) => {
     case RECEIVE_POSTS:
       newState = merge({}, state, action.users)
       return newState
+
+    case RECEIVE_REQUESTERS:
+      newState = merge({}, state, action.requesters)
+      // debugger
+      newState.requests = Object.keys(action.requesters)
+      return newState;
 
     case CLEAR_SEARCH_RESULTS:
       newState = merge({}, state)

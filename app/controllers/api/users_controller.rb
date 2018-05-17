@@ -41,6 +41,18 @@ class Api::UsersController < ApplicationController
     # users.index.json.jbuilder ---- postIds = @posts.pluck(&:id)
   end
 
+  def get_friend_requests
+    friendships = current_user.requested_by.where("status = 'PENDING' ").pluck(:friender)
+    query = "(#{friendships.join(',')})"
+    debugger
+    if friendships.length > 0
+      @users = User.where("id in #{query}").includes(:profile)
+    else
+      @users = []
+    end
+    render :index
+  end
+
   def get_friends
     @users = User.find(params[:id]).friends.includes(:profile)
     render :index

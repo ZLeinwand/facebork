@@ -26,3 +26,9 @@ export const fetchFriends = (userId) => {
     url: `/api/users/${userId}/friendships`
   })
 }
+
+export const fetchFriendRequests = () => {
+  return $.ajax({
+    url: '/api/users/requests'
+  })
+}

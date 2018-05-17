@@ -87,9 +87,13 @@ export default class ProfileHead extends Component{
       backgroundPosition: 'center'
     }
 
-    let button = ''
+    let button = <Link to={`/users/${this.props.match.params.userId}/requests`}><div>Requests</div></Link>
     if (this.props.currentUser != this.props.match.params.userId) {
-      button = <FriendshipButton />
+      button = (
+        <div>
+          <FriendshipButton />
+        </div>
+      )
     }
 
     return (
@@ -121,9 +125,7 @@ export default class ProfileHead extends Component{
           <Link to={`/users/${this.props.match.params.userId}`}><div>Timeline</div></Link>
           <Link to={`/users/${this.props.match.params.userId}/about`}><div>About</div></Link>
           <Link to={`/users/${this.props.match.params.userId}/friends`}><div>Friends</div></Link>
-          <div>
-            {button}
-          </div>
+          {button}
         </nav>
       </section>
     )
