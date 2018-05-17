@@ -26,4 +26,11 @@ class Friend < ApplicationRecord
     User.where(query)
   end
 
+  def self.seed_starter_friends(new_user_id)
+    friends = User.where("email IN ('demouser@facebork.com', 'emma@bork.com', 'baxter@hoplife.com', 'maisy@ardsley.com', 'tom@myspace.com')").pluck(:id)
+    friends.each do |friend_id|
+      Friend.create(friender: friend_id, friendee: new_user_id, status: 'FRIENDS')
+    end
+  end
+
 end

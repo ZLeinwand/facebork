@@ -6,5 +6,6 @@ json.users do
     end
   end
 end
-
-json.search_results @users.pluck(:id)
+all_users = @users.pluck(:id)
+all_users.delete(current_user.id)
+json.search_results all_users
