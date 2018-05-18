@@ -4,7 +4,7 @@ Facebork, a facebook clone, is a single page app developed over 10 days. It uses
 
 
 ### Live Demo
-[Live demo](www.thefacebork.herokuapp.com)
+[Live demo](http://thefacebork.herokuapp.com)
 
 ## Features
 
