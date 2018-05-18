@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
   })
   return {
     posts: postArray,
-    users: state.entities.users
+    users: state.entities.users,
+    loading: state.ui.loading
   }
 }
 

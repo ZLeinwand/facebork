@@ -4,9 +4,16 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS'
 export const RECEIVE_POST = 'RECEIVE_POST'
 export const REMOVE_POST = 'REMOVE_POST'
+export const START_LOADING_POSTS = 'START_LOADING_POSTS'
 
 export const fetchWallPosts = (wallId) => (dispatch) => {
+  dispatch(startLoading())
   return APIUtil.fetchWallPosts(wallId).then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
+}
+
+export const fetchNewsFeedPosts = () => (dispatch) => {
+  dispatch(startLoading())
+  return APIUtil.fetchNewsFeedPosts().then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
 }
 
 export const receivePosts = (payload) => {
@@ -22,6 +29,12 @@ const receiveErrors = (errors) => {
   return {
     type: RECEIVE_POST_ERRORS,
     errors
+  }
+}
+
+const startLoading = () => {
+  return {
+    type: START_LOADING_POSTS
   }
 }
 
@@ -42,8 +55,4 @@ const removePost = (postId) => {
     type: REMOVE_POST,
     postId
   }
-}
-
-export const fetchNewsFeedPosts = () => (dispatch) => {
-  return APIUtil.fetchNewsFeedPosts().then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
 }

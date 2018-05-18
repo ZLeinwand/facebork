@@ -11,11 +11,7 @@ export default class PostIndex extends Component {
 
   componentWillReceiveProps(newProps){
     if (this.props.news){
-      const oldKeys = this.props.posts.map((post) => (post.id))
-      const newKeys = newProps.posts.map((post) => (post.id))
-      if (!isEqual(oldKeys.sort(), newKeys.sort())) {
-        this.props.fetchPosts()
-      }
+      //dont do anything
     }else{
       if (this.props.match.params.userId != newProps.match.params.userId){
         this.props.fetchPosts(newProps.match.params.userId)
@@ -24,14 +20,16 @@ export default class PostIndex extends Component {
   }
 
   render(){
-    let posts = "NO POSTS YET"
-      if (this.props.posts.length > 0) {
-        posts = this.props.posts.map( (post, idx) => (<PostIndexItem post={post} key={idx} poster={this.props.users[post.author_id]} />) )
-      }
+
+
+    const content = this.props.loading ?
+      <div className="loader">Loading...</div> :
+      this.props.posts.map( (post, idx) => (<PostIndexItem post={post} key={idx} poster={this.props.users[post.author_id]} />) )
+
 
     return (
       <section className='postIndexContainer'>
-        {posts}
+        {content}
       </section>
     )
   }

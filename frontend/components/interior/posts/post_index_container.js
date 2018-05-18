@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     posts: postArray,
     wallId: ownProps.match.params.userId,
-    users: state.entities.users
+    users: state.entities.users,
+    loading: state.ui.loading
   }
 }
 
