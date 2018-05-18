@@ -42,7 +42,7 @@ export default (props) => {
           </div>
         </main>
       </span>
-      <Footer />
+      Copyright 2018 CyberMartinez LLC all rights reserved
     </span>
   )
 }

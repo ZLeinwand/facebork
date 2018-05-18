@@ -35,3 +35,4 @@ Facebork is a single page app. Using React's hashrouter and logic we can prevent
 * Messenger
 * Trending News api
 * Events
+* Video uploads
