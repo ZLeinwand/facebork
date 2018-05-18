@@ -29,7 +29,6 @@ export default (state = { search_results: [], requests: [] }, action) => {
 
     case RECEIVE_REQUESTERS:
       newState = merge({}, state, action.requesters)
-      // debugger
       newState.requests = Object.keys(action.requesters)
       return newState;
 
