@@ -29,7 +29,23 @@ class Friend < ApplicationRecord
   def self.seed_starter_friends(new_user_id)
     friends = User.where("email IN ('demouser@facebork.com', 'emma@bork.com', 'baxter@hoplife.com', 'maisy@ardsley.com', 'tom@myspace.com')").pluck(:id)
     friends.each do |friend_id|
-      Friend.create(friender: friend_id, friendee: new_user_id, status: 'FRIENDS')
+      begin
+        Friend.create(friender: friend_id, friendee: new_user_id, status: 'FRIENDS')
+      rescue
+        next
+      end
+    end
+  end
+
+  def self.seed_random_friends(user_id)
+    users = User.all.pluck(:id)
+    users.delete(user_id)
+    7.times do
+      begin
+        Friend.create(friender: user_id, friendee: users.sample, status: 'FRIENDS')
+      rescue
+        next
+      end
     end
   end
 
