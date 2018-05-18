@@ -32,6 +32,7 @@ gem 'aws-sdk', '< 3.0'
 gem 'figaro'
 gem 'paperclip', "~> 5.0.0.beta1"
 gem 'faker'
+gem 'pry-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -43,7 +44,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'annotate'
-  gem 'pry-rails'
+  # gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'better_errors'
 end
