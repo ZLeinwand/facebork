@@ -74,6 +74,12 @@ class Api::PostsController < ApplicationController
     post.destroy
   end
 
+  def destroy_like
+    @like = Like.where(likeable_id: params[:post_id], likeable_type: "Post", user_id: current_user.id)
+    @like.destroy
+    render :destroy_like
+  end
+
   private
 
   def post_params
