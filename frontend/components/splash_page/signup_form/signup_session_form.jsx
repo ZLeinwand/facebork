@@ -26,11 +26,14 @@ export default class SignUpSessionForm extends Component {
   }
 
   render() {
+    const errors = this.props.errors.map((error) => {
+      return <div className='errors'>{error}</div>
+    })
 
     return (
       <div className='signContainer'>
         <form className='signupForm' onSubmit={this.handleSubmit}>
-          <span className='errors'>{this.props.errors.join('\n')}</span>
+          {errors}
 
             <input onChange={this.update('name')}
               type='text'

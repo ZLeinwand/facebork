@@ -78,3 +78,11 @@
 .borkPostTop {
   display: flex;
 }
+
+.loading {
+  background-image: url('https://s3.us-east-2.amazonaws.com/seedphotos/other/loader.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  background-size: 60px 60px;
+}

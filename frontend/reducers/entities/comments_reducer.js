@@ -6,7 +6,7 @@ export default (state = {}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_POSTS:
-      return action.comments
+      return merge({}, state, action.comments)
     case RECEIVE_COMMENT:
       newState = merge({}, state)
       newState[action.comment.id] = action.comment

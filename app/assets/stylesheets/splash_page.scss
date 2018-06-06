@@ -92,6 +92,7 @@ body {
 
 .loginForm > div > button:hover {
   background-color: #3B5998;
+  cursor: pointer;
 }
 
 .errors{
@@ -202,7 +203,10 @@ main > div > h3 {
   border-radius: 7px;
   text-shadow: 1px 1px #000000;
   box-shadow: 0 0 0 0px #95d67b, inset 0px 1px 2px 0px #fff;
+}
 
+.splashButton:hover {
+  cursor: pointer;
 }
 
 .features > div {

@@ -11,13 +11,14 @@ const mapStateToProps = (state, ownProps) => {
   return {
     posts: postArray,
     users: state.entities.users,
-    loading: state.ui.loading
+    loading: state.ui.loading,
+    offset: ownProps.offset
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: () => dispatch(fetchNewsFeedPosts())
+    fetchPosts: (offset) => dispatch(fetchNewsFeedPosts(offset))
   }
 }
 

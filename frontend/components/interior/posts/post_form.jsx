@@ -15,6 +15,8 @@ export default class PostForm extends Component {
   submitHandler(e){
     e.preventDefault()
 
+    this.setState({body: ''})
+
     let wall_id;
 
     if (this.props.news){
@@ -22,8 +24,13 @@ export default class PostForm extends Component {
     } else {
       wall_id = this.props.match.params.userId
     }
+
+    let borkbox = document.getElementsByClassName('postBox');
+    // debugger
+    borkbox[0].classList.add('loading')
+
     const data = { body: this.state.body, wall_id }
-    this.props.action(data).then(() => this.setState({body: ''}))
+    this.props.action(data).then(() => (borkbox[0].classList.remove('loading')))
   }
 
 

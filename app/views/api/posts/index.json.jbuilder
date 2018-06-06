@@ -2,6 +2,7 @@ comments = []
 authors = []
 
 json.posts do
+  json.offset @offset
   json.post_order do
     json.array! @posts.map(&:id)
   end

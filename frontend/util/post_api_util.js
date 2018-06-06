@@ -1,8 +1,8 @@
 
-export const fetchWallPosts = (wall_id) => {
+export const fetchWallPosts = (wall_id, offset) => {
   return $.ajax({
     url: '/api/posts',
-    data: { post: { wall_id} }
+    data: { post: { wall_id,}, offset}
   })
 }
 
@@ -29,8 +29,10 @@ export const updatePost = (postData) => {
   })
 }
 
-export const fetchNewsFeedPosts = () => {
+export const fetchNewsFeedPosts = (offset) => {
+  console.log(offset)
   return $.ajax({
     url:'/api/posts',
+    data: { offset }
   })
 }

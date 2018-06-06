@@ -1,15 +1,22 @@
 class Api::PostsController < ApplicationController
   def index
+    # debugger
     if params[:post]
       @posts = Post
         .includes(:author, comments: [:author])
         .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
+        .limit(10).offset(params[:offset])
+
+      @offset = params[:offset]
     else
       friends = current_user.friends.pluck(:id)
       friends << current_user.id
       query = "(#{friends.join(', ')})"
       @posts = Post.where("author_id IN #{query} AND wall_id = author_id")
         .includes(:author, comments: [:author]).order(created_at: :desc)
+        .limit(25).offset(params[:offset])
+
+      @offset = params[:offset]
     end
   end
 
@@ -29,12 +36,16 @@ class Api::PostsController < ApplicationController
         @posts = Post
           .includes(:author, comments: [:author])
           .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
+          .limit(25).offset(params[:offset])
 
+        @offset = params[:offset]
         render :index
       else
         @posts = Post
           .includes(:author, comments: [:author]).order(created_at: :desc)
+          .limit(25).offset(params[:offset])
 
+        @offset = params[:offset]
         render :index
       end
     else
@@ -49,6 +60,9 @@ class Api::PostsController < ApplicationController
       @posts = Post
         .includes(:author, comments: [:author])
         .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
+        .limit(25).limit(25).offset(params[:offset])
+
+      @offset = params[:offset]
       render :index
     else
       render json: @post.errors.full_messages, status: 420

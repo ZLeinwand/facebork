@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.userApi = UserActions
   window.friendApi = FriendActions
 
+  
+
   if (window.currentUser) {
     store.dispatch(Actions.receiveCurrentUser(window.currentUser))
     delete window.currentUser

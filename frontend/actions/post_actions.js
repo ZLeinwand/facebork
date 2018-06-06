@@ -6,14 +6,14 @@ export const RECEIVE_POST = 'RECEIVE_POST'
 export const REMOVE_POST = 'REMOVE_POST'
 export const START_LOADING_POSTS = 'START_LOADING_POSTS'
 
-export const fetchWallPosts = (wallId) => (dispatch) => {
+export const fetchWallPosts = (offset, wallId) => (dispatch) => {
   dispatch(startLoading())
-  return APIUtil.fetchWallPosts(wallId).then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
+  return APIUtil.fetchWallPosts(wallId, offset).then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
 }
 
-export const fetchNewsFeedPosts = () => (dispatch) => {
+export const fetchNewsFeedPosts = (offset) => (dispatch) => {
   dispatch(startLoading())
-  return APIUtil.fetchNewsFeedPosts().then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
+  return APIUtil.fetchNewsFeedPosts(offset).then((posts) => dispatch(receivePosts(posts)), (errors) => dispatch(receiveErrors(errors)))
 }
 
 export const receivePosts = (payload) => {

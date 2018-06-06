@@ -12,13 +12,14 @@ const mapStateToProps = (state, ownProps) => {
     posts: postArray,
     wallId: ownProps.match.params.userId,
     users: state.entities.users,
-    loading: state.ui.loading
+    loading: state.ui.loading,
+    offset: ownProps.offset
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: (wallId) => dispatch(fetchWallPosts(wallId))
+    fetchPosts: (wallId, offset) => dispatch(fetchWallPosts(wallId, offset))
   }
 }
 
