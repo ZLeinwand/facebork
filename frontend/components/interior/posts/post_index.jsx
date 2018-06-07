@@ -17,7 +17,6 @@ export default class PostIndex extends Component {
         this.props.clearPosts()
         this.props.fetchPosts(this.props.offset, newProps.match.params.userId)
       }
-      // debugger
     }else{
       if (this.props.match.params.userId != newProps.match.params.userId){
         this.props.clearPosts()

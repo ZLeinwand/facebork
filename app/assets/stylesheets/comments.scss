@@ -38,6 +38,7 @@
   width: 433px;
   border-radius: 20px;
   background-color: white;
+  // justify-content: space-between;
 }
 
 .commentBy > a {
@@ -50,4 +51,46 @@
   font-size: 13px;
   font-weight: 400;
   margin-right: 20px;
+}
+
+.commentLikeButtonContainer {
+  width: 30px;
+  height: 40px;
+  margin-left: 5px;
+  align-self: flex-end;
+  display: flex;
+}
+
+.commentLikeCounter {
+  width: 20px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  align-self: flex-end;
+  font-size: 14px;
+}
+
+.commentLickIcon {
+  height: 25px;
+  width: 25px;
+}
+
+.commentLikeText {
+  margin: 0px;
+  font-size: 12px;
+  color: #365799;
+  text-align: center;
+}
+
+.commentLikeButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commentLikeButton:hover {
+  background-color: #e5e7ea;
+  text-decoration: underline;
+  text-decoration-color: #365799;
+  cursor: pointer;
 }

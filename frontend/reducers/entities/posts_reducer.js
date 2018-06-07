@@ -31,7 +31,6 @@ export default (state = { post_order: [] }, action) => {
     case RECEIVE_POSTS:
       newState = merge({}, state, action.posts)
       newState.post_order = union(state.post_order, newState.post_order)
-      // debugger
       return newState
     case RECEIVE_COMMENT:
       newState = merge({}, state)

@@ -26,7 +26,6 @@ export default class PostForm extends Component {
     }
 
     let borkbox = document.getElementsByClassName('postBox');
-    // debugger
     borkbox[0].classList.add('loading')
 
     const data = { body: this.state.body, wall_id }

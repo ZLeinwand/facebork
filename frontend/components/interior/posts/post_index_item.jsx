@@ -18,7 +18,7 @@ export default (props) => {
     if (props.post.likes.like_count == 0){
       lickText = ""
     }else if (props.post.likes.like_count == 1) {
-      lickText = "1 licks"
+      lickText = "1 lick"
     }else {
       lickText = `${props.post.likes.like_count} licks`
     }

@@ -9,7 +9,7 @@ export default (state = {}, action) => {
     case RECEIVE_POSTS:
       return merge({}, state, action.comments)
     case RECEIVE_LIKE:
-      if (action.likeable_type === 'Comment'){
+      if (action.likeData.likeable_type === 'Comment'){
         newState = merge({}, state)
         newState[action.likeData.likeable_id].likes.like_count++
         newState[action.likeData.likeable_id].likes.liked = true

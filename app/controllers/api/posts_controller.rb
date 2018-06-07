@@ -1,6 +1,5 @@
 class Api::PostsController < ApplicationController
   def index
-    # debugger
     if params[:post]
       @posts = Post
         .includes(:likes, :author, comments: [:likes, :author])
@@ -75,7 +74,6 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy_like
-    # debugger
     @like = Like.where(likeable_id: params[:post_id], likeable_type: "Post", user_id: current_user.id).first
     @like.destroy
     render 'api/likes/destroy_like.json.jbuilder'
