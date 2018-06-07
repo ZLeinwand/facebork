@@ -18,9 +18,10 @@ export default class CommentForm extends Component {
 
   submitHandler(e) {
     e.preventDefault()
-
-    this.props.action(this.state)
-    this.setState({ comment_text: ''})
+    if (this.state.comment_text.length > 0) {
+      this.props.action(this.state)
+      this.setState({ comment_text: ''})
+    }
   }
 
   update(e) {
@@ -38,7 +39,7 @@ export default class CommentForm extends Component {
             className='commentText'
             value={this.state.comment_text}
             maxLength='140'
-            placeholder='Bork back on this post'>
+            placeholder='Bork back'>
           </input>
         </form>
       </div>

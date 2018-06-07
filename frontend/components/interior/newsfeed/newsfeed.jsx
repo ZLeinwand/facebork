@@ -9,6 +9,10 @@ export default class NewsFeed extends Component {
     this.state = { offset: 0 }
   }
 
+  componentDidMount(){
+    this.props.clearPosts()
+  }
+
 
 
 

@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     # debugger
     if params[:post]
       @posts = Post
-        .includes(:author, comments: [:author])
+        .includes(:likes, :author, comments: [:likes, :author])
         .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
         .limit(10).offset(params[:offset])
 
@@ -13,7 +13,7 @@ class Api::PostsController < ApplicationController
       friends << current_user.id
       query = "(#{friends.join(', ')})"
       @posts = Post.where("author_id IN #{query} AND wall_id = author_id")
-        .includes(:author, comments: [:author]).order(created_at: :desc)
+        .includes(:likes, :author, comments: [:likes, :author]).order(created_at: :desc)
         .limit(25).offset(params[:offset])
 
       @offset = params[:offset]
@@ -34,7 +34,7 @@ class Api::PostsController < ApplicationController
     if @post.save
       unless news
         @posts = Post
-          .includes(:author, comments: [:author])
+          .includes(:likes, :author, comments: [:likes, :author])
           .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
           .limit(25).offset(params[:offset])
 
@@ -42,7 +42,7 @@ class Api::PostsController < ApplicationController
         render :index
       else
         @posts = Post
-          .includes(:author, comments: [:author]).order(created_at: :desc)
+          .includes(:likes, :author, comments: [:likes, :author]).order(created_at: :desc)
           .limit(25).offset(params[:offset])
 
         @offset = params[:offset]
@@ -58,7 +58,7 @@ class Api::PostsController < ApplicationController
 
     if @post.update(params[:body])
       @posts = Post
-        .includes(:author, comments: [:author])
+        .includes(:likes, :author, comments: [:likes, :author])
         .where(wall_id: params[:post][:wall_id]).order(created_at: :desc)
         .limit(25).limit(25).offset(params[:offset])
 
@@ -75,9 +75,10 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy_like
-    @like = Like.where(likeable_id: params[:post_id], likeable_type: "Post", user_id: current_user.id)
+    # debugger
+    @like = Like.where(likeable_id: params[:post_id], likeable_type: "Post", user_id: current_user.id).first
     @like.destroy
-    render :destroy_like
+    render 'api/likes/destroy_like.json.jbuilder'
   end
 
   private

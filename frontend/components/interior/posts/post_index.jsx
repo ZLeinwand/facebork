@@ -7,14 +7,20 @@ export default class PostIndex extends Component {
 
 
   componentDidMount(){
+    // this.props.clearPosts()
     this.props.fetchPosts(this.props.offset, this.props.match.params.userId)
   }
 
   componentWillReceiveProps(newProps){
     if (this.props.news){
-      //dont do anything
+      if (this.props.match.params.userId != newProps.match.params.userId){
+        this.props.clearPosts()
+        this.props.fetchPosts(this.props.offset, newProps.match.params.userId)
+      }
+      // debugger
     }else{
       if (this.props.match.params.userId != newProps.match.params.userId){
+        this.props.clearPosts()
         this.props.fetchPosts(this.props.offset, newProps.match.params.userId)
       }
     }
@@ -23,10 +29,16 @@ export default class PostIndex extends Component {
   render(){
 
       let content = ""
+      let posts = this.props.posts
       if (this.props.users){
+        posts = this.props.posts.slice(this.props.offset, this.props.offset + 25)
       content = this.props.loading ?
       <div className="loader">Loading...</div> :
-      this.props.posts.map( (post, idx) => (<PostIndexItem post={post} key={idx} poster={this.props.users[post.author_id]} />) )
+      posts.map( (post, idx) => {
+        if (post) {
+          return (<PostIndexItem post={post} key={idx} poster={this.props.users[post.author_id]} />)
+        }
+      })
     }
     return (
       <section className='postIndexContainer'>

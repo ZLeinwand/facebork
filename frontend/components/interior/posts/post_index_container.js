@@ -1,7 +1,7 @@
 import PostIndex from './post_index'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchWallPosts } from '../../../actions/post_actions'
+import { fetchWallPosts, clearPosts } from '../../../actions/post_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: (wallId, offset) => dispatch(fetchWallPosts(wallId, offset))
+    fetchPosts: (wallId, offset) => dispatch(fetchWallPosts(wallId, offset)),
+    clearPosts: () => dispatch(clearPosts())
   }
 }
 

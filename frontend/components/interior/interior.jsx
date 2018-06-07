@@ -3,7 +3,7 @@ import NavBar from './nav_bar_container'
 import Profile from './profile/profile_container'
 import { Route } from 'react-router-dom'
 import Modal from '../modal'
-import NewsFeed from './newsfeed/newsfeed'
+import NewsFeed from './newsfeed/newsfeed_container'
 
 export default (props) => {
   return (

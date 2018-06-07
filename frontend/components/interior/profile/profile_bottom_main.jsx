@@ -33,7 +33,7 @@ export default class profileBottomMain extends Component {
               return {offset: prevState.offset + 10}
             })
         }
-      }, 500
+      }, 1000
     })
 
     return (

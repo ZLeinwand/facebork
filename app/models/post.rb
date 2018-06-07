@@ -22,4 +22,7 @@ class Post < ApplicationRecord
     class_name: :User
 
   has_many :comments
+
+  has_many :likes,
+    as: :likeable
 end

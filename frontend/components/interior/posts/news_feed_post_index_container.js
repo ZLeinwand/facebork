@@ -1,7 +1,7 @@
 import PostIndex from './post_index'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchNewsFeedPosts } from '../../../actions/post_actions'
+import { fetchNewsFeedPosts, clearPosts } from '../../../actions/post_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: (offset) => dispatch(fetchNewsFeedPosts(offset))
+    fetchPosts: (offset) => dispatch(fetchNewsFeedPosts(offset)),
+    clearPosts: () => dispatch(clearPosts())
   }
 }
 

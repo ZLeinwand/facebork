@@ -5,6 +5,7 @@ export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS'
 export const RECEIVE_POST = 'RECEIVE_POST'
 export const REMOVE_POST = 'REMOVE_POST'
 export const START_LOADING_POSTS = 'START_LOADING_POSTS'
+export const CLEAR_POSTS = 'CLEAR_POSTS'
 
 export const fetchWallPosts = (offset, wallId) => (dispatch) => {
   dispatch(startLoading())
@@ -35,6 +36,12 @@ const receiveErrors = (errors) => {
 const startLoading = () => {
   return {
     type: START_LOADING_POSTS
+  }
+}
+
+export const clearPosts = () => {
+  return {
+    type: CLEAR_POSTS
   }
 }
 

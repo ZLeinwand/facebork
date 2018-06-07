@@ -40,7 +40,7 @@ class Api::CommentsController < ApplicationController
   def destroy_like
     @like = Like.where(likeable_id: params[:comment_id], likeable_type: "Comment", user_id: current_user.id)
     @like.destroy
-    render :destroy_like
+    render 'api/likes/destroy_like.json.jbuilder'
   end
 
   private

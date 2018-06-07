@@ -13,6 +13,7 @@ export default class Profile extends Component {
   }
 
   componentDidMount() {
+    this.props.clearPosts()
     this.props.fetchProfile(this.props.match.params.userId)
   }
 

@@ -19,6 +19,54 @@
   border-radius: 3px;
 }
 
+.postLikeArea {
+  height: 40px;
+  width: auto;
+  display: flex;
+  border-bottom: 1px solid darkgray;
+}
+
+.postLikeButton {
+  width: 230px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.postLikeButton:hover {
+  cursor: pointer;
+  background-color: #f5f6f9
+}
+
+.lickCounter {
+  width: 137px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.lickWhite {
+  color: #61667d;
+  font-weight: 600;
+  font-size: 15px
+}
+
+.lickBlue {
+  font-weight: 600;
+  font-size: 15px;
+  color: #365799;
+}
+
+.lickIcon {
+  height: 25px;
+  width: 25px;
+  margin-right: 12px;
+}
+
 .postHead {
   display: flex;
   align-items: center;
