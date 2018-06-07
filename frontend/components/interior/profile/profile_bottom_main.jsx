@@ -10,6 +10,10 @@ export default class profileBottomMain extends Component {
     this.state = { offset: 0 }
   }
 
+  componentDidMount(){
+    this.props.clearPosts()
+  }
+
   render() {
     let profile = {}
     if (this.props.profile) {
