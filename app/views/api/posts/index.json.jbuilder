@@ -31,7 +31,7 @@ end
 
 
 json.comments do
-  json.hng 'wat'
+  json.dog 'bork'
   comments.each do |comment|
     authors << comment.author
 
